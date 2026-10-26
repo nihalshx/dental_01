@@ -27,7 +27,8 @@ def page(body, *, title, desc, path, r, home, schema, slug=''):
     header = rd(S('partials', 'header.html'))
     footer = rd(S('partials', 'footer.html'))
     loader = ('<div class="loader" aria-hidden="true"><svg class="loader__crown" viewBox="100 228 815 492">'
-              f'<path d="{CROWN}" fill-rule="evenodd"/></svg></div>') if home else ''
+              f'<path d="{CROWN}" fill-rule="evenodd"/></svg></div>'
+              '<script>setTimeout(function(){var l=document.querySelector(".loader");if(l){l.remove();document.documentElement.classList.remove("lenis-stopped")}},5000)</script>') if home else ''
     H = '' if home else f'{r}index.html'
     rep = {
         '{{TITLE}}': e(title), '{{DESC}}': e(desc), '{{PATH}}': path, '{{OG}}': 'assets/img/og.jpg',
@@ -38,6 +39,13 @@ def page(body, *, title, desc, path, r, home, schema, slug=''):
     for k, v in rep.items(): out = out.replace(k, v)
     out = out.replace('{{H}}', H).replace('{{R}}', r).replace('{{CROWN_D}}', CROWN).replace('{{SCRIPT_D}}', SCRIPT)
     assert '{{' not in out, [l for l in out.split('\n') if '{{' in l][:3]
+    # cache-busting: every css/js link carries a hash of the file, so a new deploy is always fetched fresh
+    import re, hashlib
+    def ver(m):
+        f = os.path.join(OUT, m.group(2))
+        h = hashlib.md5(open(f, 'rb').read()).hexdigest()[:8] if os.path.exists(f) else 'x'
+        return f'{m.group(1)}{r}{m.group(2)}?v={h}"'
+    out = re.sub(r'((?:src|href)=")' + re.escape(r) + r'((?:js|css)/[^"?]+\.(?:js|css))"', ver, out)
     return out
 
 def ld(obj): return '<script type="application/ld+json">\n' + json.dumps(obj, ensure_ascii=False, indent=1) + '\n</script>'
@@ -51,6 +59,11 @@ DENTIST = {
         {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "07:00", "closes": "23:59"},
         {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "14:00", "closes": "22:00"}],
     "sameAs": ["https://www.instagram.com/kingsdentalcenter/", "https://www.facebook.com/kingsdentalqatar/"]}
+
+# translations for client-side language switch
+js = {s: {lang: {k: v for k, v in T[s][lang].items() if k != 'desc'} for lang in ('en', 'ar')} for s in ORDER}
+open(os.path.join(OUT, 'js', 'treatments.js'), 'w', encoding='utf-8').write(
+    '/* Generated from src/treatments.json by src/build.py. Edit the JSON, not this file. */\nwindow.KDC_TREAT = ' + json.dumps(js, ensure_ascii=False) + ';\nwindow.KDC_TREAT_ORDER = ' + json.dumps(ORDER) + ';\n')
 
 # home
 body = rd(S('home.html')).replace('{{TREAT_CARDS}}', '\n        '.join(card(s, '') for s in ORDER))
@@ -88,11 +101,6 @@ for slug in ORDER:
     open(os.path.join(OUT, 'treatments', f'{slug}.html'), 'w', encoding='utf-8').write(page(body,
         title=title, desc=t['desc'], path=f'treatments/{slug}', r='../', home=False, schema=schema, slug=slug))
     print(f'{slug:14s} title {len(title)}  desc {len(t["desc"])}')
-
-# translations for client-side language switch
-js = {s: {lang: {k: v for k, v in T[s][lang].items() if k != 'desc'} for lang in ('en', 'ar')} for s in ORDER}
-open(os.path.join(OUT, 'js', 'treatments.js'), 'w', encoding='utf-8').write(
-    '/* Generated from src/treatments.json by src/build.py. Edit the JSON, not this file. */\nwindow.KDC_TREAT = ' + json.dumps(js, ensure_ascii=False) + ';\nwindow.KDC_TREAT_ORDER = ' + json.dumps(ORDER) + ';\n')
 
 # sitemap
 urls = [''] + [f'treatments/{s}' for s in ORDER]

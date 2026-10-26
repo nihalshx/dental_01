@@ -356,9 +356,12 @@
   }
 
   /* ---------------- boot ---------------- */
-  applyLang();
-  initForm();
-  initVideos();
+  // safety net first: whatever fails below, the page never stays behind the loader
+  setTimeout(() => { const l = $('.loader'); if (l) { l.remove(); lenis?.start(); document.documentElement.classList.remove('lenis-stopped'); } }, 4500);
+  const safe = (fn, ...a) => { try { return fn(...a); } catch (err) { console.error('[kdc]', err); } };
+  safe(applyLang);
+  safe(initForm);
+  safe(initVideos);
   $$('[data-year]').forEach(e => (e.textContent = new Date().getFullYear()));
   setInterval(renderStatus, 20000);
 
@@ -373,13 +376,12 @@
     }
   });
 
-  initScroll();
-  setTimeout(() => { const l = $('.loader'); if (l) { l.remove(); lenis?.start(); } }, 4500); // safety net
+  safe(initScroll);
   const go = () => {
     if (hasGsap && !reduced) {
-      if (PAGE === 'home') homeMotion();
-      if (PAGE === 'treatment') treatmentMotion();
-      footerMotion();
+      if (PAGE === 'home') safe(homeMotion);
+      if (PAGE === 'treatment') safe(treatmentMotion);
+      safe(footerMotion);
       ScrollTrigger.refresh();
     }
     // arriving with #book etc. from another page
@@ -388,6 +390,6 @@
       [60, 400, 1000].forEach(t => setTimeout(jump, t)); // re-aim after pins and images settle
     }
   };
-  const ready = () => playLoader(go);
+  const ready = () => { try { playLoader(go); } catch (err) { console.error('[kdc]', err); $('.loader')?.remove(); lenis?.start(); go(); } };
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready); else addEventListener('load', ready);
 })();
