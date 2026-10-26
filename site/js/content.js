@@ -126,6 +126,7 @@ window.KDC = {
   t: {
     en: {
       heroKicker2: 'Kings Dental Center, Qatar',
+      chatCta: 'Prefer to chat? Ask our virtual receptionist',
       reviewAsk: 'Been to one of our clinics? Your review helps other patients choose with confidence.', reviewWrite: 'Write a review',
       menu: 'Menu', statClinics: 'clinics', statCountries: 'countries', statSpecialties: 'specialties', statDays: 'days a week',
       netTitle2: 'Find your nearest clinic',
@@ -186,6 +187,7 @@ window.KDC = {
     },
     ar: {
       heroKicker2: 'مركز كينجز لطب الأسنان، قطر',
+      chatCta: 'تفضّل المحادثة؟ اسأل موظف الاستقبال الافتراضي',
       reviewAsk: 'زرت إحدى عياداتنا؟ تقييمك يساعد المرضى الآخرين على الاختيار بثقة.', reviewWrite: 'اكتب تقييمًا',
       menu: 'القائمة', statClinics: 'عيادة', statCountries: 'دول', statSpecialties: 'تخصصات', statDays: 'أيام في الأسبوع',
       netTitle2: 'اعثر على أقرب عيادة',

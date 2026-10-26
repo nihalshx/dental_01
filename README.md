@@ -33,6 +33,7 @@ This writes `site/index.html`, `site/treatments/*.html`, `site/js/treatments.js`
 - `/treatments/root-canal`, `orthodontics`, `restorative`, `implants`, `gums`, `cosmetic`, `children`, `preventive`
 
 ## What's built in
+- Virtual receptionist (DEMO): a scripted chat on every page. Books an appointment step by step (treatment, clinic, day, time, name, mobile, review, confirm), answers hours, clinics, insurance, prices, pain, children and tourism questions, in English and Arabic. No AI service or API: everything runs in `site/js/receptionist.js`, times are sample availability and nothing is sent or saved. To go live it would connect to the clinic's booking system and WhatsApp.
 - Cinematic hero: full-screen dark scene, the tooth turns frame by frame as you scroll, giant split headline, quick booking bar (treatment + clinic straight to WhatsApp)
 - Full-screen menu, maroon crown page transitions between pages
 - Specialties marquee that speeds up with your scrolling
