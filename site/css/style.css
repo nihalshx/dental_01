@@ -622,3 +622,13 @@ html[dir="rtl"] .finale__title { font-family: var(--arabic); font-weight: 700; l
   .finale__video { object-fit: cover; object-position: 50% 40%; transform: scale(1.02); }
   .finale__copy { margin-top: -24px; }
 }
+
+/* Google review badge */
+.gbadge { display: inline-flex; align-items: center; gap: clamp(20px, 3vw, 36px); text-align: start; padding: clamp(20px, 2.4vw, 28px) clamp(22px, 3vw, 36px); border: 1px solid var(--mist); border-radius: 28px; background: var(--white); max-width: 640px; }
+.gbadge__img { width: clamp(84px, 9vw, 112px); height: auto; flex: none; }
+.gbadge__text { margin: 0 0 16px; color: var(--graphite); max-width: 38ch; }
+.gbadge__links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+@media (max-width: 520px) { .gbadge { flex-direction: column; text-align: center; } .gbadge__links { justify-content: center; } }
+.kids__frame img { object-position: 42% 50%; }
+.steps__media { aspect-ratio: 4 / 3; }
+.tour__media { aspect-ratio: 4 / 3; }

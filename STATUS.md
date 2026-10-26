@@ -2,7 +2,9 @@
 
 **Built:** homepage + 8 treatment pages, English + Arabic, motion, branch finder (20 clinics), booking to WhatsApp. Checked at 375, 390 and 1440 px, Arabic, reduced motion. No page errors.
 
-**Assets in:** both Google Flow videos, all 8 treatment images.
+**Assets in:** hero turntable, crown finale, silk loop, clinic reveal (Flow); 8 treatment images, kids, visit steps, Doha skyline (ChatGPT); Google 'review us' badge.
+
+**Still optional:** 8 wide treatment-page banners (prompts sent).
 
 **Content sources:** client's homepage, contact page (branches), Pediatric and Preventive pages. The other six treatment pages use plain, general explanations of each procedure plus the client's one-line descriptions. Nothing invented about the clinic.
 
