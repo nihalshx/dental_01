@@ -328,7 +328,7 @@
     gsap.timeline()
       .from(canvas, { opacity: 0, scale: 1.08, duration: 1.8, ease: 'expo.out' }, 0)
       .from(words, { yPercent: 110, duration: 1.4, stagger: .12, ease: 'expo.out' }, .15)
-      .from('.hx__top > *, .hx__lede, .qb', { y: 24, opacity: 0, duration: 1, stagger: .07, ease: 'power3.out' }, .55)
+      .from('.hx__top > *, .hx__lede, .hx__actions', { y: 24, opacity: 0, duration: 1, stagger: .07, ease: 'power3.out' }, .55)
       .from('.bar__in > *', { y: -12, opacity: 0, duration: .6, stagger: .05, ease: 'power2.out' }, .3);
 
     // scroll: the tooth turns, the words part, the interface steps back

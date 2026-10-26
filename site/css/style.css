@@ -632,3 +632,14 @@ html[dir="rtl"] .finale__title { font-family: var(--arabic); font-weight: 700; l
 .kids__frame img { object-position: 42% 50%; }
 .steps__media { aspect-ratio: 4 / 3; }
 .tour__media { aspect-ratio: 4 / 3; }
+
+/* hero actions (replaces the quick booking bar) */
+.hx__actions { display: flex; align-items: center; gap: 24px; }
+.hx__actions .btn--light { color: var(--ink); min-width: 180px; }
+.hx__call { color: var(--enamel); text-decoration: none; font-weight: 600; padding: 12px 0; border-bottom: 1px solid rgba(244,246,245,.4); transition: border-color .3s; }
+.hx__call:hover { border-color: var(--enamel); }
+@media (max-width: 860px) {
+  .hx__actions { gap: 0; }
+  .hx__actions .btn--light { flex: 1; }
+  .hx__call { display: none; }
+}
