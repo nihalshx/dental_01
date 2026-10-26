@@ -767,3 +767,34 @@ html[dir="rtl"] .finale__title { font-family: var(--arabic); font-weight: 700; l
   .rx__msg { max-width: 88%; }
 }
 @media (prefers-reduced-motion: reduce) { .rx__msg, .rx__chips { animation: none; } .rx__panel { transition: none; } }
+
+/* phones: chat lives inside the bottom bar, no floating button */
+@media (max-width: 860px) {
+  .rx__launch { display: none; }
+  .dock { gap: 6px; }
+  .dock__call { padding: 0 16px; gap: 10px; min-width: 0; }
+  .dock__txt { min-width: 0; }
+  .dock__state { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dock__chat { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; flex: none; width: 64px; min-height: 56px; border: 0; border-radius: 999px; background: var(--maroon); color: var(--white); font: inherit; font-size: .72rem; font-weight: 600; cursor: pointer; position: relative; }
+  .dock__chat-crown { width: 22px; fill: var(--white); }
+  .dock__chat::after { content: ""; position: absolute; top: 9px; right: 15px; width: 8px; height: 8px; border-radius: 50%; background: #3FBF6E; border: 2px solid var(--maroon); }
+  .dock__wa { padding: 0 16px; flex: none; }
+}
+@media (max-width: 360px) {
+  .dock__call .status__dot { display: none; }
+  .dock__wa { padding: 0 12px; }
+}
+@media (min-width: 861px) { .dock__chat { display: none; } }
+@media (max-width: 860px) {
+  .dock__num { white-space: nowrap; font-size: .95rem; letter-spacing: -.01em; }
+  .dock__state { font-size: .7rem; }
+  .dock__call { padding: 0 14px; gap: 9px; }
+  .dock__chat { width: 58px; }
+  .dock__wa { padding: 0 14px; font-size: .92rem; }
+}
+@media (max-width: 374px) {
+  .dock__call .status__dot { display: none; }
+  .dock__num { font-size: .88rem; }
+  .dock__wa { padding: 0 11px; font-size: .86rem; }
+  .dock__chat { width: 52px; }
+}
