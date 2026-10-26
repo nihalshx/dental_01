@@ -8,34 +8,42 @@ Double-click `site/index.html`, or for the smoothest preview run a local server 
 npx serve site
 ```
 
-## Deploy (Vercel)
-`vercel.json` serves the `site/` folder as a static site, no build step.
-1. vercel.com > Add New > Project > import `nihalshx/dental_01`.
-2. Leave every setting as detected (Framework: Other) and press Deploy.
-3. Every push to `main` redeploys automatically.
-4. Add the domain under Project > Settings > Domains.
+## Deploy
+Drag the `site` folder into Netlify Drop (app.netlify.com/drop) or Vercel. Point kingsdentalcenter.com at it.
 
 ## Where things are
 | What | File |
 |---|---|
-| All text, English and Arabic, services, FAQ, opening hours | `site/js/content.js` |
-| Design (colors, type, layout) | `site/css/style.css` |
+| Treatment page text (English + Arabic) | `src/treatments.json` |
+| Homepage layout | `src/home.html` |
+| Treatment page layout | `src/treatment.html` |
+| Shared header / footer / head | `src/partials/` |
+| Site text, FAQ, hours, all 20 branches | `site/js/content.js` |
+| Design | `site/css/style.css` |
 | Motion and interactions | `site/js/main.js` |
-| Logo (traced from the client's PNG) | `site/assets/logo/` |
-| Videos to add | `site/assets/video/` (see ASSET_BRIEF.md) |
-| Images to add | `site/assets/img/` (see ASSET_BRIEF.md) |
+
+After editing anything in `src/`, rebuild the pages:
+```
+python3 src/build.py
+```
+This writes `site/index.html`, `site/treatments/*.html`, `site/js/treatments.js` and `site/sitemap.xml`.
+
+## Pages
+- `/` homepage
+- `/treatments/root-canal`, `orthodontics`, `restorative`, `implants`, `gums`, `cosmetic`, `children`, `preventive`
 
 ## What's built in
-- Crown preloader that draws the Kings crown, then lands in the header (once per visit)
-- Signature section: scroll and the page dives through the crown into the clinic film
-- Live "Open now / Closed" status in Doha time, from the real hours, in the header and phone dock
-- Full Arabic version with right-to-left layout (button top right)
-- Booking form that opens WhatsApp with the request already written
-- Services that open in place, with an image that follows the cursor on desktop
-- Footer "Kings" signature that writes itself as you reach the bottom
-- Smooth scroll (Lenis) and GSAP motion, all switched off for visitors who prefer reduced motion
-- Sticky call and WhatsApp dock on phones
-- SEO: one h1, title, description, Dentist schema, sitemap, robots, share image
+- Crown preloader that draws the Kings crown, then lands in the header
+- Dive through the crown into the clinic film
+- Treatments: horizontal pinned scroll on desktop, swipe on phones, each opening its own page
+- How a visit works, with a line that draws as you read
+- Children's dentistry feature
+- Branch finder: all 20 clinics in Qatar, UAE, Bahrain and India, with tap-to-call and directions
+- Live "Open now / Closed" status in Doha time
+- Full Arabic version with right-to-left layout on every page
+- Booking form with treatment and clinic choice that opens WhatsApp with the request written
+- Treatment pages link to the booking form with the treatment preselected
+- SEO: titles, descriptions, Dentist and MedicalWebPage schema, breadcrumbs, sitemap
 
 ## Libraries
 GSAP 3.15 with ScrollTrigger and SplitText (free license), Lenis 1.3. Fonts: Bodoni Moda, Hanken Grotesk, Noto Kufi Arabic (OFL), self-hosted.

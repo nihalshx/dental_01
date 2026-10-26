@@ -10,6 +10,40 @@ window.KDC = {
     0: [7, 24], 1: [7, 24], 2: [7, 24], 3: [7, 24], 4: [7, 24], 5: [14, 22], 6: [7, 24]
   },
 
+
+  // All branches, as published on kingsdentalcenter.com/contact (October 2026).
+  // [name, address, [display, tel], [display, tel]]
+  countries: [
+    { id: 'qa', en: 'Qatar', ar: 'قطر', branches: [
+      ['Asian Town', 'Zone 56, Street 100, Building 355, Mesaimeer', ['4417 4576', '+97444174576'], ['3329 4913', '+97433294913']],
+      ['Muaither', 'Muaither N Street, Al Rayyan', ['4411 4926', '+97444114926'], ['3317 1842', '+97433171842']],
+      ['Al Wakrah', 'Zone 90, Street 763, Building 46, Al Wakrah', ['4412 7012', '+97444127012'], ['3371 5911', '+97433715911']],
+      ['Al Khor', 'Zone 74, Street 880, Building 124, Al Khor', ['4431 0709', '+97444310709'], ['3111 4130', '+97431114130']],
+      ['Al Hilal', 'Zone 43, Street 250, Building 237, Al Mamoura', ['4469 1594', '+97444691594'], ['3000 9713', '+97430009713']],
+      ['Gold Souq', 'Zone 6, Street 930, Building 3, Old Al Ghanim', ['4478 4574', '+97444784574'], ['7049 9084', '+97470499084']],
+      ['Umm Salal', 'Zone 71, Street 750, Building 212, Umm Salal Mohammed', ['4427 7141', '+97444277141'], ['7767 9665', '+97477679665']],
+      ['Al Attiyah', 'Zone 55, Street 860, Building 217-218, Al Attiyah', ['4414 3223', '+97444143223'], ['3110 2433', '+97431102433']],
+      ['Duhail', 'Zone 31, Street 857, Building 83, Duhail, Doha', ['4437 0550', '+97444370550'], ['7711 0224', '+97477110224']],
+      ['Al Markhiya', 'Zone 64, Street 370, Building 144, Al Mawrid, Markhiya, Doha', ['4417 3702', '+97444173702'], ['7766 9947', '+97477669947']],
+      ['Nuaija', 'Nuaija, Doha', ['3102 6780', '+97431026780'], ['3032 7137', '+97430327137']],
+      ['Najma', 'Nuaija, Doha', ['3102 6780', '+97431026780'], ['7049 9084', '+97470499084']],
+      ['Al Waab', 'Al Waab, Doha', ['3009 4590', '+97430094590'], ['5585 3120', '+97455853120']],
+      ['Abu Hamour', 'Abu Hamour, Doha', ['3004 4679', '+97430044679'], ['3002 2428', '+97430022428']]
+    ] },
+    { id: 'ae', en: 'UAE', ar: 'الإمارات', branches: [
+      ['Karama, Dubai', '20b Street, Ground Floor, Hamdan Juma Building, near Al Karama, Dubai', ['04 398 4445', '+97143984445'], ['058 522 6900', '+971585226900']],
+      ['Rolla, Sharjah', 'Al Aqad Street, Rolla, Sharjah', ['06 561 7577', '+97165617577'], ['058 540 1100', '+971585401100']]
+    ] },
+    { id: 'bh', en: 'Bahrain', ar: 'البحرين', branches: [
+      ['Budaiya', 'Diraz, Budaiya', ['1732 0007', '+97317320007'], ['3834 0007', '+97338340007']]
+    ] },
+    { id: 'in', en: 'India', ar: 'الهند', branches: [
+      ['Calicut', 'Chappayil, 15/1907, S Beach Road, Kuttichira, Kozhikode, Kerala', ['0495 355 9885', '+914953559885'], ['89433 33193', '+918943333193']],
+      ['Naduvattam', 'Naduvattam, Calicut, Kerala', ['89433 02633', '+918943302633'], ['89433 02733', '+918943302733']],
+      ['Kannur', 'Mahatma Gandhi Road, next to State Bank of India, Thavakkara, Kannur, Kerala', ['0497 355 1393', '+914973551393'], ['85940 94513', '+918594094513']]
+    ] }
+  ],
+
   services: [
     {
       slug: 'root-canal',
@@ -72,8 +106,8 @@ window.KDC = {
   faq: [
     { en: ['When is Kings Dental Center open?', 'Saturday to Thursday from 7 AM to midnight, and Friday from 2 PM to 10 PM, Doha time.'],
       ar: ['ما هي مواعيد عمل مركز كينجز لطب الأسنان؟', 'من السبت إلى الخميس من 7 صباحًا حتى منتصف الليل، ويوم الجمعة من 2 ظهرًا حتى 10 مساءً بتوقيت الدوحة.'] },
-    { en: ['Where is the clinic?', 'At the Kings Head Office, Gate 8, Grand Mall Building, Asian Town in the Industrial Area of Doha. Tap "Open in Google Maps" for directions.'],
-      ar: ['أين يقع المركز؟', 'في المكتب الرئيسي لكينجز، البوابة 8، مبنى جراند مول، آسيان تاون، المنطقة الصناعية بالدوحة. اضغط "افتح في خرائط جوجل" للاتجاهات.'] },
+    { en: ['Where are your clinics?', 'We have 14 clinics across Qatar, including Asian Town, Al Wakrah, Al Khor, Duhail, Umm Salal and Al Markhiya, plus branches in Dubai, Sharjah, Bahrain and Kerala. See the full list with phone numbers under "Our clinics".'],
+      ar: ['أين تقع عياداتكم؟', 'لدينا 14 عيادة في أنحاء قطر منها آسيان تاون والوكرة والخور والدحيل وأم صلال والمرخية، إضافة إلى فروع في دبي والشارقة والبحرين وكيرالا. اطلع على القائمة الكاملة مع أرقام الهواتف في قسم "عياداتنا".'] },
     { en: ['Which insurance do you accept?', 'We work with insurers including Al Koot, QLM, MetLife and Allianz. Send a photo of your card on WhatsApp and we will confirm your cover.'],
       ar: ['ما شركات التأمين التي تقبلونها؟', 'نتعامل مع شركات منها الكوت وQLM وميتلايف وأليانز. أرسل صورة بطاقتك عبر واتساب وسنؤكد لك التغطية.'] },
     { en: ['Do you treat children?', 'Yes. Our pediatric dentistry covers diagnosis and treatment for children and teenagers.'],
@@ -91,17 +125,34 @@ window.KDC = {
 
   t: {
     en: {
+      heroKicker2: 'Kings Dental Center, Qatar',
+      treatLede: 'Eight specialties, one team. Choose a treatment to see how it works.',
+      readMore: 'How it works',
+      stepsTitle: 'What happens at your visit?',
+      step1t: 'A thorough examination', step1d: 'A specialist examines your teeth and gums carefully before recommending anything.',
+      step2t: 'A plan that suits you', step2d: 'We recommend the treatment that fits your condition and explain it in plain words.',
+      step3t: 'Treatment and prevention', step3d: 'We treat what needs treating, then help you keep your teeth healthy so problems don\'t return.',
+      kidsTitle: 'Raise your children with healthy, glowing smiles.',
+      kidsText: 'Our pediatric dentists take an affectionate approach, adapting to each child\'s mood and behaviour so they feel relaxed. Calm, hygienic clinics and a focus on prevention from the start make every visit a positive one.',
+      kidsCta: 'Children\'s dentistry',
+      netTitle: 'clinics in four countries', netLede: 'Find the Kings Dental Center nearest you. Tap a number to call the branch.',
+      netCount: '{n} clinics', directions: 'Directions', callBranch: 'Call', mobile: 'Mobile',
+      fClinic: 'Clinic', fClinicAny: 'Any clinic',
+      footTreat: 'Treatments', allBranches: 'All branches',
+      bookName: 'Book {s}', otherTreat: 'Other treatments', backHome: 'Kings Dental Center', treatCrumb: 'Treatments',
+      atKings: 'At Kings Dental Center',
+      treatCtaText: 'Call us or send your request on WhatsApp. We\'ll find a time that suits you.',
       skip: 'Skip to content', brandSub: 'Dental Center',
       navServices: 'Services', navVisit: 'Visit', navInsurance: 'Insurance', navFaq: 'Questions',
       heroKicker: 'Kings Dental Center, Doha', heroTitle: 'Smile, differently.',
-      heroLede: 'Comprehensive dental care, near you. Eight specialties under one roof in Asian Town, open until midnight six days a week.',
+      heroLede: 'Comprehensive dental care, near you. Eight specialties and 14 clinics across Qatar, open until midnight six days a week.',
       ctaBook: 'Book a visit', ctaCall: 'Call',
       throughTitle: 'Every specialty you need, in one place.',
       throughText: "From a child's first check-up to implants and orthodontics, your whole family can be cared for by one team.",
       servicesTitle: 'What can we treat?', servicesLede: 'Choose a treatment to read more, then book it in one tap.',
       bookThis: 'Book this treatment',
       statement: 'Kings Dental Center is part of the Kings family in Qatar, alongside Modern Dental Lab, Kings Pharmacy and Queens Dermatology Center.',
-      visitTitle: 'When are we open?', clockLabel: 'Doha time', whereTitle: 'Where to find us',
+      visitTitle: 'When are we open?', clockLabel: 'Doha time', whereTitle: 'Head office', navClinics: 'Clinics',
       addr1: 'Kings Head Office, Gate 8', addr2: 'Grand Mall Building, Asian Town', addr3: 'Industrial Area, Doha, Qatar',
       ctaMap: 'Open in Google Maps',
       insureTitle: 'Do you accept my insurance?',
@@ -123,20 +174,37 @@ window.KDC = {
       callUs: 'Call us', midnight: 'midnight', tomorrow: 'tomorrow', closed: 'Closed', today: 'Today',
       longOpen: 'We are open right now, until {t}. Walk in or call ahead.',
       longClosed: 'We are closed right now and open again {d} at {t}. Message us on WhatsApp and we will reply when we open.',
-      waMsg: 'Hello Kings Dental Center, I would like to book an appointment.\nName: {n}\nMobile: {p}\nTreatment: {s}\nPreferred day: {w}'
+      waMsg: 'Hello Kings Dental Center, I would like to book an appointment.\nName: {n}\nMobile: {p}\nTreatment: {s}\nClinic: {c}\nPreferred day: {w}'
     },
     ar: {
+      heroKicker2: 'مركز كينجز لطب الأسنان، قطر',
+      treatLede: 'ثمانية تخصصات وفريق واحد. اختر العلاج لترى كيف يتم.',
+      readMore: 'كيف يتم',
+      stepsTitle: 'ماذا يحدث في زيارتك؟',
+      step1t: 'فحص دقيق', step1d: 'يفحص أخصائي أسنانك ولثتك بعناية قبل أي توصية.',
+      step2t: 'خطة تناسبك', step2d: 'نوصي بالعلاج المناسب لحالتك ونشرحه بكلمات واضحة.',
+      step3t: 'العلاج والوقاية', step3d: 'نعالج ما يحتاج إلى علاج، ثم نساعدك على الحفاظ على صحة أسنانك حتى لا تعود المشاكل.',
+      kidsTitle: 'ربِّ أطفالك على ابتسامات صحية ومشرقة.',
+      kidsText: 'يتعامل أطباء أسنان الأطفال لدينا بأسلوب حنون يراعي مزاج كل طفل وسلوكه ليشعر بالراحة. عيادات هادئة ونظيفة وتركيز على الوقاية منذ البداية يجعلان كل زيارة تجربة إيجابية.',
+      kidsCta: 'طب أسنان الأطفال',
+      netTitle: 'عيادة في أربع دول', netLede: 'اعثر على أقرب مركز كينجز لطب الأسنان إليك. اضغط على الرقم للاتصال بالفرع.',
+      netCount: '{n} عيادات', directions: 'الاتجاهات', callBranch: 'اتصال', mobile: 'جوال',
+      fClinic: 'العيادة', fClinicAny: 'أي عيادة',
+      footTreat: 'العلاجات', allBranches: 'كل الفروع',
+      bookName: 'احجز {s}', otherTreat: 'علاجات أخرى', backHome: 'مركز كينجز لطب الأسنان', treatCrumb: 'العلاجات',
+      atKings: 'في مركز كينجز لطب الأسنان',
+      treatCtaText: 'اتصل بنا أو أرسل طلبك عبر واتساب وسنجد موعدًا يناسبك.',
       skip: 'انتقل إلى المحتوى', brandSub: 'لطب الأسنان',
       navServices: 'الخدمات', navVisit: 'الزيارة', navInsurance: 'التأمين', navFaq: 'الأسئلة',
       heroKicker: 'مركز كينجز لطب الأسنان، الدوحة', heroTitle: 'ابتسم، بشكل مختلف.',
-      heroLede: 'رعاية شاملة للأسنان، بالقرب منك. ثمانية تخصصات تحت سقف واحد في آسيان تاون، مفتوح حتى منتصف الليل ستة أيام في الأسبوع.',
+      heroLede: 'رعاية شاملة للأسنان، بالقرب منك. ثمانية تخصصات و14 عيادة في أنحاء قطر، مفتوحة حتى منتصف الليل ستة أيام في الأسبوع.',
       ctaBook: 'احجز زيارة', ctaCall: 'اتصل',
       throughTitle: 'كل التخصصات التي تحتاجها، في مكان واحد.',
       throughText: 'من أول فحص لطفلك إلى الزراعة والتقويم، يمكن لعائلتك كلها أن تُعالج لدى فريق واحد.',
       servicesTitle: 'ماذا نعالج؟', servicesLede: 'اختر العلاج لتقرأ المزيد، ثم احجزه بلمسة واحدة.',
       bookThis: 'احجز هذا العلاج',
       statement: 'مركز كينجز لطب الأسنان جزء من مجموعة كينجز في قطر، إلى جانب مختبر مودرن للأسنان وصيدلية كينجز ومركز كوينز للأمراض الجلدية.',
-      visitTitle: 'متى نكون مفتوحين؟', clockLabel: 'توقيت الدوحة', whereTitle: 'كيف تجدنا',
+      visitTitle: 'متى نكون مفتوحين؟', clockLabel: 'توقيت الدوحة', whereTitle: 'المكتب الرئيسي', navClinics: 'العيادات',
       addr1: 'المكتب الرئيسي لكينجز، البوابة 8', addr2: 'مبنى جراند مول، آسيان تاون', addr3: 'المنطقة الصناعية، الدوحة، قطر',
       ctaMap: 'افتح في خرائط جوجل',
       insureTitle: 'هل تقبلون تأميني؟',
@@ -158,7 +226,7 @@ window.KDC = {
       callUs: 'اتصل بنا', midnight: 'منتصف الليل', tomorrow: 'غدًا', closed: 'مغلق', today: 'اليوم',
       longOpen: 'نحن مفتوحون الآن حتى {t}. تفضل بالزيارة أو اتصل مسبقًا.',
       longClosed: 'نحن مغلقون الآن ونفتح {d} الساعة {t}. راسلنا عبر واتساب وسنرد عند الافتتاح.',
-      waMsg: 'مرحبًا مركز كينجز لطب الأسنان، أود حجز موعد.\nالاسم: {n}\nالجوال: {p}\nالعلاج: {s}\nاليوم المفضل: {w}'
+      waMsg: 'مرحبًا مركز كينجز لطب الأسنان، أود حجز موعد.\nالاسم: {n}\nالجوال: {p}\nالعلاج: {s}\nالعيادة: {c}\nاليوم المفضل: {w}'
     }
   }
 };

@@ -1,11 +1,16 @@
 # Status
 
-**Built:** full site, English + Arabic, all sections, motion, booking to WhatsApp. Checked at 375, 390 and 1440 px, reduced motion, RTL.
+**Built:** homepage + 8 treatment pages, English + Arabic, motion, branch finder (20 clinics), booking to WhatsApp. Checked at 375, 390 and 1440 px, Arabic, reduced motion. No page errors.
 
-**Assets in:** both Google Flow videos (uncompressed originals, per request) and all 8 treatment images (PNG originals).
+**Assets in:** both Google Flow videos, all 8 treatment images.
 
-**Still waiting on:** a real clinic entrance photo and doctor portraits from the client.
+**Content sources:** client's homepage, contact page (branches), Pediatric and Preventive pages. The other six treatment pages use plain, general explanations of each procedure plus the client's one-line descriptions. Nothing invented about the clinic.
 
-**Waiting on facts:** branch list, full insurer list, WhatsApp number, domain (ASSET_BRIEF.md section 4).
+**Waiting on the client:**
+- Doctors: names, titles, specialties, photos (none are published on their site)
+- Clinic photos (entrance, reception, treatment rooms) for the head office spot and a gallery
+- The full text of their other six treatment pages if they want it used verbatim
+- Najma branch: their site lists its address as "Nuaija, Doha", the same as the Nuaija branch. Correct?
+- Full insurer list, and confirmation that the hours apply to every branch
 
-**Next:** drop in assets, compress videos, add Doctors and Branches sections once facts arrive, deploy, test the live form and tel links on a phone.
+**Deploy:** pushed to github.com/nihalshx/dental_01 (main). Vercel serves `site/` via vercel.json.

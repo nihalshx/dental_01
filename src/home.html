@@ -1,0 +1,182 @@
+<body data-page="home" data-root="">
+{{HEADER}}
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__in wrap">
+    <div class="hero__copy">
+      <p class="hero__kicker" data-i18n="heroKicker2">Kings Dental Center, Qatar</p>
+      <h1 class="hero__title" data-i18n="heroTitle">Smile, differently.</h1>
+      <p class="hero__lede" data-i18n="heroLede">Comprehensive dental care, near you. Eight specialties and 14 clinics across Qatar, open until midnight six days a week.</p>
+      <div class="hero__actions">
+        <a class="btn btn--ink" href="#book" data-i18n="ctaBook">Book a visit</a>
+        <a class="btn btn--line" href="tel:+97431026780"><span data-i18n="ctaCall">Call</span> <span class="num" dir="ltr">+974 3102 6780</span></a>
+      </div>
+    </div>
+    <figure class="hero__media" aria-hidden="true">
+      <div class="arch">
+        <div class="arch__fallback">
+          <svg class="arch__crown" viewBox="100 228 815 492"><path d="{{CROWN_D}}" fill-rule="evenodd"/></svg>
+          <span class="arch__sheen"></span>
+        </div>
+        <video class="arch__video" data-src="assets/video/hero-loop.mp4" muted loop playsinline preload="none"></video>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- SIGNATURE: through the crown -->
+<section class="through" aria-labelledby="through-title">
+  <div class="through__pin">
+    <div class="through__mask">
+      <div class="through__fill">
+        <video class="through__video" data-src="assets/video/clinic-reveal.mp4" muted loop playsinline preload="none"></video>
+      </div>
+    </div>
+    <div class="through__copy wrap">
+      <h2 id="through-title" class="through__title" data-i18n="throughTitle">Every specialty you need, in one place.</h2>
+      <p class="through__text" data-i18n="throughText">From a child's first check-up to implants and orthodontics, your whole family can be cared for by one team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS: image-led, horizontal on desktop -->
+<section class="treat" id="services" aria-labelledby="services-title">
+  <div class="treat__pin">
+    <header class="wrap treat__head">
+      <h2 id="services-title" class="sec-title" data-i18n="servicesTitle">What can we treat?</h2>
+      <p class="sec-lede" data-i18n="treatLede">Eight specialties, one team. Choose a treatment to see how it works.</p>
+    </header>
+    <div class="treat__viewport">
+      <ul class="treat__track" data-treat-track>
+        {{TREAT_CARDS}}
+      </ul>
+    </div>
+    <div class="wrap treat__bar" aria-hidden="true"><span class="treat__progress"></span></div>
+  </div>
+</section>
+
+<!-- HOW A VISIT WORKS (a real sequence, so numbered) -->
+<section class="steps" aria-labelledby="steps-title">
+  <div class="wrap steps__grid">
+    <div class="steps__side">
+      <h2 id="steps-title" class="sec-title" data-i18n="stepsTitle">What happens at your visit?</h2>
+      <figure class="steps__media">
+        <img src="assets/img/clinic/porcelain-still.jpg" alt="" width="1920" height="1080" loading="lazy">
+      </figure>
+    </div>
+    <ol class="steps__list">
+      <li class="step"><span class="step__n" aria-hidden="true">1</span><div><h3 class="step__t" data-i18n="step1t">A thorough examination</h3><p class="step__d" data-i18n="step1d">A specialist examines your teeth and gums carefully before recommending anything.</p></div></li>
+      <li class="step"><span class="step__n" aria-hidden="true">2</span><div><h3 class="step__t" data-i18n="step2t">A plan that suits you</h3><p class="step__d" data-i18n="step2d">We recommend the treatment that fits your condition and explain it in plain words.</p></div></li>
+      <li class="step"><span class="step__n" aria-hidden="true">3</span><div><h3 class="step__t" data-i18n="step3t">Treatment and prevention</h3><p class="step__d" data-i18n="step3d">We treat what needs treating, then help you keep your teeth healthy so problems don't return.</p></div></li>
+      <span class="steps__line" aria-hidden="true"></span>
+    </ol>
+  </div>
+</section>
+
+<!-- CHILDREN -->
+<section class="kids" aria-labelledby="kids-title">
+  <div class="wrap kids__grid">
+    <figure class="kids__media">
+      <div class="kids__frame"><img src="assets/img/services/children.png" alt="A porcelain baby tooth beside a maroon toothbrush" width="1448" height="1086" loading="lazy"></div>
+    </figure>
+    <div class="kids__copy">
+      <h2 id="kids-title" class="kids__title" data-i18n="kidsTitle">Raise your children with healthy, glowing smiles.</h2>
+      <p class="kids__text" data-i18n="kidsText">Our pediatric dentists take an affectionate approach, adapting to each child's mood and behaviour so they feel relaxed. Calm, hygienic clinics and a focus on prevention from the start make every visit a positive one.</p>
+      <a class="btn btn--ink" href="treatments/children.html" data-i18n="kidsCta">Children's dentistry</a>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK / BRANCH FINDER -->
+<section class="net" id="clinics" aria-labelledby="net-title">
+  <div class="wrap">
+    <h2 id="net-title" class="net__title"><span class="net__num" data-count="20" dir="ltr">20</span> <span data-i18n="netTitle">clinics in four countries</span></h2>
+    <p class="net__lede" data-i18n="netLede">Find the Kings Dental Center nearest you. Tap a number to call the branch.</p>
+    <div class="net__tabs" role="tablist" aria-label="Country" data-net-tabs></div>
+    <div class="net__panel" role="tabpanel" data-net-list></div>
+  </div>
+</section>
+
+<!-- VISIT / HOURS -->
+<section class="visit" id="visit" aria-labelledby="visit-title">
+  <div class="wrap visit__grid">
+    <div class="visit__now">
+      <h2 id="visit-title" class="sec-title" data-i18n="visitTitle">When are we open?</h2>
+      <p class="clock"><span class="clock__label" data-i18n="clockLabel">Doha time</span> <span class="clock__time" data-clock dir="ltr">--:--</span></p>
+      <p class="visit__state" data-status-long>Open Saturday to Thursday until midnight.</p>
+      <table class="hours" aria-label="Opening hours"><tbody data-hours></tbody></table>
+    </div>
+    <div class="visit__where">
+      <h3 class="visit__h" data-i18n="whereTitle">Head office</h3>
+      <address class="visit__addr">
+        <span data-i18n="addr1">Kings Head Office, Gate 8</span><br>
+        <span data-i18n="addr2">Grand Mall Building, Asian Town</span><br>
+        <span data-i18n="addr3">Industrial Area, Doha, Qatar</span>
+      </address>
+      <div class="visit__links">
+        <a class="btn btn--ink" href="https://maps.app.goo.gl/DoaFzT3tieYbJkjC8" target="_blank" rel="noopener" data-i18n="ctaMap">Open in Google Maps</a>
+        <a class="btn btn--line" href="mailto:info@kingsdentalcenter.com" dir="ltr">info@kingsdentalcenter.com</a>
+      </div>
+      <figure class="visit__photo">
+        <img src="assets/img/clinic/entrance.jpg" alt="Kings Dental Center entrance at Grand Mall Building" width="1200" height="900" loading="lazy" onerror="this.closest('figure').classList.add('is-empty')">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE -->
+<section class="insure" id="insurance" aria-labelledby="insure-title">
+  <div class="wrap insure__in">
+    <h2 id="insure-title" class="sec-title" data-i18n="insureTitle">Do you accept my insurance?</h2>
+    <p class="sec-lede" data-i18n="insureLede">We work with insurers including these. Send us your card on WhatsApp and we'll confirm your cover before your visit.</p>
+    <ul class="insure__list"><li>Al Koot</li><li>QLM</li><li>MetLife</li><li>Allianz</li></ul>
+  </div>
+</section>
+
+<!-- REVIEW -->
+<section class="voice" aria-labelledby="voice-title">
+  <div class="wrap voice__in">
+    <h2 id="voice-title" class="visually-hidden" data-i18n="voiceTitle">What patients say</h2>
+    <figure class="voice__fig">
+      <blockquote class="voice__ar" lang="ar" dir="rtl">افضل معامله شفتها من بين المستشفيات الخاصه واسعارهم جدا مناسبه</blockquote>
+      <p class="voice__en" data-i18n="reviewEn" lang="en">"The best treatment I've seen among the private hospitals, and their prices are very reasonable."</p>
+      <figcaption class="voice__cap"><bdi lang="ar">خالد علي محمد</bdi>, <span data-i18n="reviewSrc">Google review, November 2021</span></figcaption>
+    </figure>
+    <a class="link" href="https://maps.app.goo.gl/DoaFzT3tieYbJkjC8" target="_blank" rel="noopener" data-i18n="ctaReviews">Read all reviews on Google</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq__grid">
+    <h2 id="faq-title" class="sec-title" data-i18n="faqTitle">Questions patients ask</h2>
+    <div class="faq__list" data-faq></div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book" aria-labelledby="book-title">
+  <div class="wrap book__grid">
+    <div>
+      <h2 id="book-title" class="sec-title" data-i18n="bookTitle">Book your visit</h2>
+      <p class="sec-lede" data-i18n="bookLede">Fill this in and it opens WhatsApp with your request ready to send. Prefer to talk? Call us.</p>
+      <a class="book__tel num" href="tel:+97431026780" dir="ltr">+974 3102 6780</a>
+    </div>
+    <form class="form" data-book novalidate>
+      <label class="field"><span data-i18n="fName">Your name</span><input name="name" autocomplete="name" required></label>
+      <label class="field"><span data-i18n="fPhone">Mobile number</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required dir="ltr"></label>
+      <label class="field"><span data-i18n="fService">Treatment</span><select name="service" data-service-select></select></label>
+      <label class="field"><span data-i18n="fClinic">Clinic</span><select name="clinic" data-clinic-select></select></label>
+      <label class="field"><span data-i18n="fWhen">Preferred day</span><select name="when" data-day-select></select></label>
+      <label class="hp" aria-hidden="true">Leave empty <input name="website" tabindex="-1" autocomplete="off"></label>
+      <p class="form__consent" data-i18n="consent">We only use these details to arrange your appointment.</p>
+      <button class="btn btn--maroon" type="submit" data-i18n="fSubmit">Send on WhatsApp</button>
+      <p class="form__msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+{{FOOTER}}

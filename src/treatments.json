@@ -1,0 +1,230 @@
+{
+  "root-canal": {
+    "en": {
+      "name": "Root canal treatment",
+      "lead": "The treatment that saves a badly decayed tooth.",
+      "desc": "Root canal treatment at Kings Dental Center in Qatar: we clean and seal an infected tooth so it doesn't fracture and you can keep it.",
+      "intro": "When decay reaches deep inside a tooth, the soft pulp at its centre becomes infected. Left alone, the tooth weakens, fractures and is eventually lost. Root canal treatment removes the infection and seals the tooth so it can stay in your mouth.",
+      "at": "Our dentists start with a thorough examination and X-rays to see how far the decay has gone. If the tooth can be saved, we explain each step before we begin and protect the tooth afterwards so it stays strong.",
+      "stepsTitle": "What happens during treatment",
+      "steps": [
+        ["Examination and X-ray", "We check the tooth and the bone around it so we know exactly where the infection is."],
+        ["Cleaning the canals", "The infected pulp is removed and the narrow canals inside the root are cleaned and shaped."],
+        ["Sealing", "The cleaned canals are filled and sealed so bacteria can't get back in."],
+        ["Protecting the tooth", "A filling or crown restores the tooth so it can handle normal chewing without fracturing."]
+      ]
+    },
+    "ar": {
+      "name": "علاج قناة الجذر",
+      "lead": "العلاج الذي ينقذ السن المتسوس بشدة.",
+      "intro": "عندما يصل التسوس إلى عمق السن، يلتهب اللب الموجود في مركزه. وإذا تُرك دون علاج يضعف السن ويتكسر ثم يُفقد في النهاية. يزيل علاج قناة الجذر الالتهاب ويغلق السن ليبقى في فمك.",
+      "at": "يبدأ أطباؤنا بفحص دقيق وأشعة لمعرفة مدى وصول التسوس. وإذا أمكن إنقاذ السن، نشرح لك كل خطوة قبل البدء ونحمي السن بعد العلاج ليبقى قويًا.",
+      "stepsTitle": "ماذا يحدث أثناء العلاج",
+      "steps": [
+        ["الفحص والأشعة", "نفحص السن والعظم المحيط به لنعرف موضع الالتهاب بدقة."],
+        ["تنظيف القنوات", "نزيل اللب الملتهب وننظف القنوات الدقيقة داخل الجذر ونشكّلها."],
+        ["الإغلاق", "نملأ القنوات النظيفة ونغلقها حتى لا تعود البكتيريا إليها."],
+        ["حماية السن", "حشوة أو تاج يعيد بناء السن ليتحمل المضغ الطبيعي دون أن يتكسر."]
+      ]
+    }
+  },
+  "orthodontics": {
+    "en": {
+      "name": "Orthodontics",
+      "lead": "Straighter teeth and a healthier bite.",
+      "desc": "Orthodontic treatment at Kings Dental Center in Qatar: straighten teeth and correct your bite as part of a complete dental care plan.",
+      "intro": "Orthodontic treatment is part of a comprehensive dental health care plan. Straightening teeth and correcting the bite makes them easier to clean, spreads the force of chewing evenly and creates a beautiful smile. With good oral care, your teeth can last a lifetime.",
+      "at": "We study your teeth, bite and jaw before recommending anything, then explain which appliance suits you, how long treatment is likely to take and how to look after your teeth along the way.",
+      "stepsTitle": "How treatment works",
+      "steps": [
+        ["Assessment", "An examination, X-rays and photos show how your teeth and jaws fit together."],
+        ["Your treatment plan", "We explain the appliance we recommend and what to expect at each stage."],
+        ["Regular visits", "Your teeth move gradually, so we see you regularly to check and adjust progress."],
+        ["Keeping the result", "A retainer holds your teeth in their new position once treatment ends."]
+      ]
+    },
+    "ar": {
+      "name": "تقويم الأسنان",
+      "lead": "أسنان مستقيمة وإطباق صحي.",
+      "intro": "علاج التقويم جزء من خطة شاملة لصحة الفم. تقويم الأسنان وتصحيح الإطباق يجعل تنظيفها أسهل ويوزع قوة المضغ بالتساوي ويمنحك ابتسامة جميلة. ومع العناية الجيدة تدوم أسنانك مدى الحياة.",
+      "at": "ندرس أسنانك وإطباقك وفكك قبل أي توصية، ثم نشرح لك الجهاز المناسب لك والمدة المتوقعة للعلاج وكيف تعتني بأسنانك خلاله.",
+      "stepsTitle": "كيف يتم العلاج",
+      "steps": [
+        ["التقييم", "الفحص والأشعة والصور توضح كيف تتطابق أسنانك وفكاك."],
+        ["خطة علاجك", "نشرح لك الجهاز الذي نوصي به وما تتوقعه في كل مرحلة."],
+        ["زيارات منتظمة", "تتحرك أسنانك تدريجيًا، لذلك نراك بانتظام لمتابعة التقدم وتعديله."],
+        ["الحفاظ على النتيجة", "يثبّت المثبّت أسنانك في وضعها الجديد بعد انتهاء العلاج."]
+      ]
+    }
+  },
+  "restorative": {
+    "en": {
+      "name": "Restorative dentistry",
+      "lead": "Fillings that rebuild a tooth after decay.",
+      "desc": "Restorative dentistry at Kings Dental Center in Qatar: fillings that seal and rebuild a tooth after decay is removed.",
+      "intro": "A filling, or restoration, is material that fills the cleaned cavity left after the decayed part of a tooth has been removed. It seals the tooth, rebuilds its shape and stops decay from spreading further.",
+      "at": "We remove only the decayed part of the tooth, then choose the filling material that suits the size of the cavity and where the tooth sits in your mouth, and shape it so your bite feels natural.",
+      "stepsTitle": "What a filling involves",
+      "steps": [
+        ["Removing the decay", "The decayed part of the tooth is cleaned away, keeping as much healthy tooth as possible."],
+        ["Filling the cavity", "The space is filled with a material chosen for that tooth."],
+        ["Shaping and polishing", "The filling is shaped and polished so your teeth meet comfortably when you bite."]
+      ]
+    },
+    "ar": {
+      "name": "طب الأسنان الترميمي",
+      "lead": "حشوات تعيد بناء السن بعد التسوس.",
+      "intro": "الحشوة أو الترميم مادة تملأ التجويف النظيف الذي يبقى بعد إزالة الجزء المتسوس من السن. فهي تغلق السن وتعيد شكله وتمنع انتشار التسوس.",
+      "at": "نزيل الجزء المتسوس فقط، ثم نختار مادة الحشوة المناسبة لحجم التجويف وموقع السن في فمك، ونشكّلها ليبدو إطباقك طبيعيًا.",
+      "stepsTitle": "ماذا تتضمن الحشوة",
+      "steps": [
+        ["إزالة التسوس", "ننظف الجزء المتسوس مع الحفاظ على أكبر قدر من السن السليم."],
+        ["ملء التجويف", "نملأ الفراغ بمادة مختارة لهذا السن."],
+        ["التشكيل والتلميع", "نشكّل الحشوة ونلمّعها لتلتقي أسنانك براحة عند العض."]
+      ]
+    }
+  },
+  "implants": {
+    "en": {
+      "name": "Dental implants",
+      "lead": "A fixed replacement for a missing tooth.",
+      "desc": "Dental implants at Kings Dental Center in Qatar: a fixed replacement for a missing tooth that looks and works like your own.",
+      "intro": "A dental implant replaces the root of a missing tooth. Once it has bonded with the jawbone, it supports a crown that looks, feels and works like a natural tooth, without relying on the teeth next to it.",
+      "at": "Not everyone is ready for an implant straight away, so we start by assessing your bone and gums. Then we plan each stage with you, from placing the implant to fitting the final crown.",
+      "stepsTitle": "The stages of an implant",
+      "steps": [
+        ["Assessment", "We check the bone and gums where the tooth is missing to make sure an implant can be placed securely."],
+        ["Placing the implant", "A small titanium post is placed in the jawbone where the root used to be."],
+        ["Healing", "Over the following weeks the implant bonds with the bone and becomes a firm base."],
+        ["The crown", "A crown made to match your other teeth is fixed on top of the implant."]
+      ]
+    },
+    "ar": {
+      "name": "زراعة الأسنان",
+      "lead": "بديل ثابت للسن المفقود.",
+      "intro": "تحل زرعة الأسنان محل جذر السن المفقود. وبعد أن تلتحم بعظم الفك تدعم تاجًا يبدو ويعمل مثل السن الطبيعي، دون الاعتماد على الأسنان المجاورة.",
+      "at": "ليس الجميع جاهزًا للزراعة مباشرة، لذلك نبدأ بتقييم العظم واللثة، ثم نخطط معك لكل مرحلة من وضع الزرعة حتى تركيب التاج النهائي.",
+      "stepsTitle": "مراحل الزراعة",
+      "steps": [
+        ["التقييم", "نفحص العظم واللثة في مكان السن المفقود للتأكد من إمكانية تثبيت الزرعة بأمان."],
+        ["وضع الزرعة", "نضع دعامة صغيرة من التيتانيوم في عظم الفك مكان الجذر."],
+        ["الالتئام", "خلال الأسابيع التالية تلتحم الزرعة بالعظم وتصبح قاعدة ثابتة."],
+        ["التاج", "نثبّت فوق الزرعة تاجًا مصنوعًا ليتناسب مع أسنانك الأخرى."]
+      ]
+    }
+  },
+  "gums": {
+    "en": {
+      "name": "Gum disease treatment",
+      "lead": "Periodontal care for gums and the bone beneath.",
+      "desc": "Gum disease treatment at Kings Dental Center in Qatar: periodontal care that treats inflamed gums early and protects the bone that holds your teeth.",
+      "intro": "Periodontics is the dental specialty that focuses on the inflammatory disease that destroys the gums and the other structures supporting your teeth. Caught early, gum disease can be treated and its damage stopped.",
+      "at": "We measure the health of your gums, explain what we find and clean beneath the gum line where your toothbrush can't reach. Then we help you keep your gums healthy between visits.",
+      "stepsTitle": "Treating gum disease",
+      "steps": [
+        ["Signs to watch for", "Gums that bleed when you brush, look red or swollen, or teeth that feel loose are worth checking."],
+        ["Deep cleaning", "Plaque and tartar are removed from above and below the gum line so the gums can heal."],
+        ["Ongoing care", "Regular check-ups and good daily habits keep the disease from coming back."]
+      ]
+    },
+    "ar": {
+      "name": "علاج أمراض اللثة",
+      "lead": "عناية باللثة والعظم الداعم للأسنان.",
+      "intro": "طب اللثة هو التخصص الذي يركز على المرض الالتهابي الذي يدمّر اللثة والأنسجة الداعمة للأسنان. وعند اكتشافه مبكرًا يمكن علاجه وإيقاف ضرره.",
+      "at": "نقيس صحة لثتك ونشرح لك ما نجده، وننظف تحت خط اللثة حيث لا تصل فرشاة الأسنان، ثم نساعدك على الحفاظ على صحة لثتك بين الزيارات.",
+      "stepsTitle": "علاج أمراض اللثة",
+      "steps": [
+        ["علامات يجب الانتباه لها", "نزيف اللثة عند التفريش أو احمرارها وتورمها أو الشعور بتخلخل الأسنان تستدعي الفحص."],
+        ["التنظيف العميق", "نزيل البلاك والجير من فوق خط اللثة وتحته لتلتئم اللثة."],
+        ["عناية مستمرة", "الفحوصات المنتظمة والعادات اليومية الجيدة تمنع عودة المرض."]
+      ]
+    }
+  },
+  "cosmetic": {
+    "en": {
+      "name": "Cosmetic dentistry",
+      "lead": "Tell us the smile you want. We'll plan it.",
+      "desc": "Cosmetic dentistry at Kings Dental Center in Qatar: tell us how you'd like your smile to look and we'll match the right treatment to it.",
+      "intro": "We offer a number of cosmetic solutions depending on your situation. The best place to start is simply to tell us what you'd like your smile to be like.",
+      "at": "A beautiful smile starts with healthy teeth and gums, so we check those first. Then we talk through the options that suit your teeth, what each involves and what result you can expect.",
+      "stepsTitle": "How we plan your smile",
+      "steps": [
+        ["Tell us what you want", "Whiter, straighter, more even: describe the smile you have in mind."],
+        ["Health check first", "We make sure your teeth and gums are healthy before any cosmetic work."],
+        ["Your options explained", "We recommend the treatment that fits your teeth and explain what it involves."]
+      ]
+    },
+    "ar": {
+      "name": "تجميل الأسنان",
+      "lead": "أخبرنا بالابتسامة التي تريدها وسنخطط لها.",
+      "intro": "نقدم مجموعة من الحلول التجميلية حسب حالتك. وأفضل بداية أن تخبرنا كيف تريد أن تبدو ابتسامتك.",
+      "at": "الابتسامة الجميلة تبدأ بأسنان ولثة صحية، لذلك نفحصها أولًا، ثم نناقش معك الخيارات المناسبة لأسنانك وما يتضمنه كل منها والنتيجة المتوقعة.",
+      "stepsTitle": "كيف نخطط لابتسامتك",
+      "steps": [
+        ["أخبرنا بما تريد", "أكثر بياضًا أو استقامة أو تناسقًا: صف الابتسامة التي تتخيلها."],
+        ["فحص الصحة أولًا", "نتأكد من صحة أسنانك ولثتك قبل أي عمل تجميلي."],
+        ["شرح خياراتك", "نوصي بالعلاج المناسب لأسنانك ونشرح ما يتضمنه."]
+      ]
+    }
+  },
+  "children": {
+    "en": {
+      "name": "Children's dentistry",
+      "lead": "Raise your children with healthy, glowing smiles.",
+      "desc": "Children's dentistry at Kings Dental Center in Qatar: gentle diagnosis and treatment for kids and teens in a calm, hygienic clinic.",
+      "intro": "Pediatric dentistry is the branch of dentistry that diagnoses and treats dental problems in children and teens. It is vital to look after your child's oral health from the beginning: when a tooth problem is neglected, children find it hard to eat and drink and can miss out on nutrients.",
+      "at": "Kings Dental Center specialises in dental care for kids and teens. Alongside their dental expertise, our pediatric dentists take an affectionate approach and adapt to each child's mood and behaviour, which helps them feel relaxed and makes treatment go smoothly. Our modern equipment and calm, hygienic clinics create a positive experience, with the main focus on preventing disease from an early age.",
+      "stepsTitle": "What we focus on",
+      "steps": [
+        ["An affectionate approach", "Our dentists handle each child according to their mood and behaviour, so they stay comfortable and relaxed."],
+        ["A calm, hygienic clinic", "Modern equipment and a quiet, clean environment help make the visit a positive one."],
+        ["Prevention from the start", "We focus on stopping problems early, so new teeth grow strong and healthy."],
+        ["Guidance for parents", "We show you how to care for your child's teeth at home between visits."]
+      ]
+    },
+    "ar": {
+      "name": "طب أسنان الأطفال",
+      "lead": "ربِّ أطفالك على ابتسامات صحية ومشرقة.",
+      "intro": "طب أسنان الأطفال هو فرع طب الأسنان الذي يشخّص ويعالج مشاكل الأسنان لدى الأطفال والمراهقين. ومن المهم العناية بصحة فم طفلك منذ البداية، فإهمال مشاكل الأسنان يصعّب على الأطفال الأكل والشرب وقد يحرمهم من العناصر الغذائية.",
+      "at": "يتخصص مركز كينجز لطب الأسنان في رعاية أسنان الأطفال والمراهقين. وإلى جانب خبرتهم، يتعامل أطباء الأطفال لدينا بأسلوب حنون يراعي مزاج كل طفل وسلوكه، مما يساعده على الاسترخاء ويُنجح العلاج. كما توفر أجهزتنا الحديثة وعياداتنا الهادئة والنظيفة تجربة إيجابية، مع تركيز أساسي على الوقاية من الأمراض منذ الصغر.",
+      "stepsTitle": "ما نركز عليه",
+      "steps": [
+        ["أسلوب حنون", "يتعامل أطباؤنا مع كل طفل حسب مزاجه وسلوكه ليبقى مرتاحًا وهادئًا."],
+        ["عيادة هادئة ونظيفة", "الأجهزة الحديثة والبيئة الهادئة والنظيفة تجعل الزيارة تجربة إيجابية."],
+        ["الوقاية من البداية", "نركز على إيقاف المشاكل مبكرًا لتنمو الأسنان الجديدة قوية وصحية."],
+        ["إرشاد الوالدين", "نوضح لك كيف تعتني بأسنان طفلك في المنزل بين الزيارات."]
+      ]
+    }
+  },
+  "preventive": {
+    "en": {
+      "name": "Preventive dentistry",
+      "lead": "Stop dental disease at the earliest stage.",
+      "desc": "Preventive dentistry at Kings Dental Center in Qatar: cleaning, sealants, fluoride, oral cancer screening and X-rays that catch problems early.",
+      "intro": "Preventive dentistry is about looking after your oral health to avoid decay, gum disease, enamel wear and other problems before they start. Alongside brushing and flossing every day, visiting your dentist at regular intervals is one of the best ways to keep your teeth healthy.",
+      "at": "At Kings Dental Center, our preventive care helps patients avoid tooth decay, gum infection, tooth loss and enamel wear. Children benefit especially, as it helps their newly grown teeth become strong and healthy. Our specialists examine you thoroughly and recommend the procedures that suit your teeth.",
+      "stepsTitle": "Preventive procedures we offer",
+      "steps": [
+        ["Dental cleaning", "Professional cleaning removes tartar and plaque build-up from the tooth surface and the gum line."],
+        ["Sealants", "Sealants are applied to the deep grooves of the back teeth (molars) to keep cavities from forming."],
+        ["Fluoride treatment", "Fluoride makes teeth stronger and more resistant to decay and helps stop cavities from forming."],
+        ["Oral cancer screening", "A screening checks for signs of oral cancer so we can act early if anything is found."],
+        ["X-rays", "X-rays reveal gum disease, cracks and decay that are hard to see during a regular check-up."]
+      ]
+    },
+    "ar": {
+      "name": "طب الأسنان الوقائي",
+      "lead": "أوقف أمراض الأسنان في مراحلها الأولى.",
+      "intro": "يهتم طب الأسنان الوقائي بالعناية بصحة فمك لتجنب التسوس وأمراض اللثة وتآكل المينا وغيرها قبل أن تبدأ. وإلى جانب التفريش واستخدام الخيط يوميًا، تُعد زيارة طبيب الأسنان بانتظام من أفضل الطرق للحفاظ على صحة أسنانك.",
+      "at": "في مركز كينجز لطب الأسنان، تساعد رعايتنا الوقائية المرضى على تجنب تسوس الأسنان والتهاب اللثة وفقدان الأسنان وتآكل المينا. ويستفيد الأطفال منها بشكل خاص لأنها تجعل أسنانهم الجديدة قوية وصحية. يفحصك أخصائيونا بدقة ويوصون بالإجراءات المناسبة لأسنانك.",
+      "stepsTitle": "الإجراءات الوقائية التي نقدمها",
+      "steps": [
+        ["تنظيف الأسنان", "يزيل التنظيف الاحترافي الجير والبلاك المتراكم على سطح الأسنان وعند خط اللثة."],
+        ["السدادات", "توضع السدادات في الشقوق العميقة للأضراس الخلفية لمنع تكوّن التسوس."],
+        ["علاج الفلورايد", "يقوّي الفلورايد الأسنان ويزيد مقاومتها للتسوس ويساعد على منع تكوّن التجاويف."],
+        ["فحص سرطان الفم", "يكشف الفحص عن علامات سرطان الفم لنتصرف مبكرًا إن وُجد أي شيء."],
+        ["الأشعة", "تكشف الأشعة أمراض اللثة والتشققات والتسوس التي يصعب رؤيتها في الفحص العادي."]
+      ]
+    }
+  }
+}
