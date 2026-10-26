@@ -51,7 +51,7 @@ This writes `site/index.html`, `site/treatments/*.html`, `site/js/treatments.js`
 - SEO: titles, descriptions, Dentist and MedicalWebPage schema, breadcrumbs, sitemap
 
 ## Libraries
-GSAP 3.15 with ScrollTrigger and SplitText (free license), Lenis 1.3. Fonts: Bodoni Moda, Hanken Grotesk, Noto Kufi Arabic (OFL), self-hosted.
+GSAP 3.15 with ScrollTrigger and SplitText (free license), Lenis 1.3. Fonts: Fraunces (headlines), Hanken Grotesk (text), Noto Kufi Arabic (OFL), self-hosted.
 
 ## Swapping in new hero footage
 `bash src/make_frames.sh new-video.mp4` then `python3 src/build.py`. Drop `silk-loop.mp4` into `site/assets/video/` and `tourism.jpg` into `site/assets/img/clinic/`; both appear automatically.

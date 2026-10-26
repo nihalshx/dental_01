@@ -12,10 +12,10 @@
 <meta property="og:image" content="https://kingsdentalcenter.com/assets/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/logo/crown.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/bodoni-moda-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=2c246ac7">
-<link rel="stylesheet" href="css/style.css?v=5d440fe4">
+<link rel="stylesheet" href="css/fonts.css?v=f7cd680e">
+<link rel="stylesheet" href="css/style.css?v=02bdaaca">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -118,7 +118,7 @@
 <main id="main">
 
 <!-- HERO: the tooth turns as you scroll (frames in assets/seq/hero) -->
-<section class="hx" id="top" data-dark data-seq="assets/seq/hero/" data-frames="96" data-ext="webp" data-crop="0.12,0.76">
+<section class="hx" id="top" data-dark data-seq="assets/seq/hero/" data-frames="96" data-ext="webp" data-crop="0,1">
   <div class="hx__stick">
     <canvas class="hx__canvas" aria-hidden="true"></canvas>
     <div class="hx__vignette" aria-hidden="true"></div>
@@ -330,6 +330,20 @@
   </div>
 </section>
 
+<!-- CLOSING: the crown assembles itself -->
+<section class="finale" data-dark aria-labelledby="finale-title">
+  <div class="finale__media">
+    <video class="finale__video" data-src="assets/video/crown-form.mp4" data-once muted playsinline preload="none" aria-hidden="true"></video>
+  </div>
+  <div class="finale__copy wrap">
+    <h2 id="finale-title" class="finale__title" data-i18n="heroTitle">Smile, differently.</h2>
+    <div class="finale__actions">
+      <a class="btn btn--light" href="#book" data-i18n="ctaBook">Book a visit</a>
+      <a class="btn btn--line-light" href="tel:+97431026780" dir="ltr">+974 3102 6780</a>
+    </div>
+  </div>
+</section>
+
 </main>
 <footer class="foot">
   <div class="wrap foot__grid">
@@ -388,7 +402,7 @@
 <script src="js/vendor/lenis.min.js?v=5a44a112"></script>
 <script src="js/content.js?v=a6c60234"></script>
 <script src="js/treatments.js?v=95e75cef"></script>
-<script src="js/main.js?v=30edb880"></script>
+<script src="js/main.js?v=de32aba2"></script>
 </body>
 </html>
 

@@ -231,10 +231,12 @@
       if (v.src) return;
       v.src = v.dataset.src;
       v.addEventListener('canplay', () => { v.classList.add('is-ready'); v.play().catch(() => {}); }, { once: true });
+      if (v.hasAttribute('data-once')) v.addEventListener('ended', () => v.classList.add('is-done'), { once: true });
       v.addEventListener('error', () => v.remove(), { once: true });
     };
     const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) { load(e.target); e.target.play?.().catch(() => {}); } else if (e.target.src) e.target.pause();
+      const v = e.target, once = v.hasAttribute('data-once');
+      if (e.isIntersecting) { load(v); if (!(once && v.classList.contains('is-done'))) v.play?.().catch(() => {}); } else if (v.src && !once) v.pause();
     }), { rootMargin: '200px' });
     $$('video[data-src]').forEach(v => io.observe(v));
   }
@@ -332,7 +334,7 @@
     const sign = rtl() ? -1 : 1;
     gsap.timeline({ scrollTrigger: { trigger: hx, start: 'top top', end: 'bottom bottom', scrub: .4 } })
       .to(state, { f: N - 1, ease: 'none', duration: 1, onUpdate: draw }, 0)
-      .to(state, { zoom: 1.18, ease: 'none', duration: 1 }, 0)
+      .to(state, { zoom: 1.07, ease: 'none', duration: 1 }, 0)
       .to('.hx__w--a .hx__wi', { xPercent: -28 * sign, ease: 'none', duration: 1 }, 0)
       .to('.hx__w--b .hx__wi', { xPercent: 28 * sign, ease: 'none', duration: 1 }, 0)
       .to('.hx__foot, .hx__top, .hx__cue', { opacity: 0, y: -30, ease: 'power1.in', duration: .3 }, 0)
@@ -342,7 +344,7 @@
   /* header turns light over dark sections */
   function darkHeader() {
     const bar = $('.bar'), on = new Set();
-    $$('[data-dark]').forEach(sec => ScrollTrigger.create({ trigger: sec, start: 'top 36px', end: 'bottom 36px',
+    $$('[data-dark]').forEach(sec => ScrollTrigger.create({ trigger: sec, start: 'top 36px', end: 'bottom 36px', refreshPriority: -1,
       onToggle: s => { s.isActive ? on.add(sec) : on.delete(sec); bar.classList.toggle('is-dark', on.size > 0); } }));
   }
 
@@ -413,6 +415,9 @@
         mq.style.transform = `translate3d(${x}px,0,0)`;
       });
     }
+
+    // finale: the line and buttons arrive as the crown finishes forming
+    gsap.from('.finale__copy > *', { y: 40, opacity: 0, duration: 1.2, stagger: .12, ease: 'expo.out', delay: 1.2, scrollTrigger: { trigger: '.finale', start: 'top 40%', once: true } });
 
     // tourism image drifts
     gsap.fromTo('.tour__media img', { yPercent: -8 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.tour', start: 'top bottom', end: 'bottom top', scrub: true } });
@@ -524,10 +529,10 @@
   safe(initCurtain);
   const go = () => {
     if (hasGsap && !reduced) {
-      safe(darkHeader);
       if (PAGE === 'home') safe(homeMotion);
       if (PAGE === 'treatment') safe(treatmentMotion);
       safe(footerMotion);
+      safe(darkHeader); // after the pins, so its positions include the pinned scroll length
       ScrollTrigger.refresh();
     }
     // arriving with #book etc. from another page
