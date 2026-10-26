@@ -47,6 +47,20 @@ def page(body, *, title, desc, path, r, home, schema, slug=''):
         h = hashlib.md5(open(f, 'rb').read()).hexdigest()[:8] if os.path.exists(f) else 'x'
         return f'{m.group(1)}{r}{m.group(2)}?v={h}"'
     out = re.sub(r'((?:src|href)=")' + re.escape(r) + r'((?:js|css)/[^"?]+\.(?:js|css))"', ver, out)
+    # media: images and videos get a content hash too, so replaced footage is never served from an old cache
+    def ver_media(m):
+        f = os.path.join(OUT, m.group(3))
+        if not os.path.isfile(f): return m.group(0)
+        h = hashlib.md5(open(f, 'rb').read()).hexdigest()[:8]
+        return f'{m.group(1)}{m.group(2)}{m.group(3)}?v={h}"'
+    out = re.sub(r'((?:src|data-src|href|poster)=")(' + re.escape(r) + r')(assets/[^"?]+)"', ver_media, out)
+    # frame sequences: one hash over all frames, read by main.js from data-seq-v
+    def ver_seq(m):
+        d = os.path.join(OUT, m.group(2))
+        hh = hashlib.md5()
+        for n in sorted(os.listdir(d)): hh.update(open(os.path.join(d, n), 'rb').read())
+        return f'data-seq="{m.group(1)}{m.group(2)}" data-seq-v="{hh.hexdigest()[:8]}"'
+    out = re.sub(r'data-seq="(' + re.escape(r) + r')(assets/seq/[^"]+)"', ver_seq, out)
     return out
 
 def ld(obj): return '<script type="application/ld+json">\n' + json.dumps(obj, ensure_ascii=False, indent=1) + '\n</script>'

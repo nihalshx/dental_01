@@ -300,7 +300,8 @@
     const [cy, ch] = (hx.dataset.crop || '0,1').split(',').map(Number);
     const imgs = new Array(N), state = { f: 0, zoom: 1 };
     let W = 0, H = 0, dpr = 1;
-    const url = i => `${base}${String(i + 1).padStart(3, '0')}.${ext}`;
+    const v = hx.dataset.seqV ? `?v=${hx.dataset.seqV}` : '';
+    const url = i => `${base}${String(i + 1).padStart(3, '0')}.${ext}${v}`;
     const near = i => { for (let d = 0; d < N; d++) { const a = imgs[i - d], b = imgs[i + d]; if (a && a.complete && a.naturalWidth) return a; if (b && b.complete && b.naturalWidth) return b; } return null; };
     const draw = () => {
       const img = near(Math.round(state.f)); if (!img) return;
