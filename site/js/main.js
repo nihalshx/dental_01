@@ -84,7 +84,7 @@
     $$('.qa__q', el).forEach(b => b.addEventListener('click', () => toggle(b.closest('.qa'), '.qa__a', b)));
   }
 
-  let netCountry = 'qa';
+  let netCountry = 'qa', mapReady = false, pendingMap = null;
   function buildNetwork() {
     const tabs = $('[data-net-tabs]'), list = $('[data-net-list]'); if (!tabs) return;
     tabs.innerHTML = D.countries.map(c => `<button class="net__tab" type="button" role="tab" data-country="${c.id}"
@@ -94,7 +94,7 @@
       list.innerHTML = `<p class="net__count">${fill(T('netCount'), { n: c.branches.length })}</p><ul class="net__list">` +
         c.branches.map(([name, addr, land, mob]) => {
           const q = encodeURIComponent(`Kings Dental Center ${name} ${c.en}`);
-          return `<li class="branch">
+          return `<li class="branch" data-name="${esc(name)}">
             <h3 class="branch__name">${esc(name)}</h3>
             <p class="branch__addr">${esc(addr)}</p>
             <div class="branch__links">
@@ -104,6 +104,8 @@
             </div></li>`;
         }).join('') + '</ul>';
       $$('.net__tab', tabs).forEach(b => b.setAttribute('aria-selected', b.dataset.country === netCountry));
+      $$('.branch', list).forEach(li => li.addEventListener('click', e => { if (!e.target.closest('a')) setMap(li.dataset.name, c.en); }));
+      if ($('[data-net-map]')) { const first = c.branches[0][0]; mapReady ? setMap(first, c.en) : (pendingMap = [first, c.en]); }
       if (animate && hasGsap && !reduced) {
         gsap.from($$('.branch', list), { y: 22, opacity: 0, duration: .55, stagger: .035, ease: 'power3.out' });
       }
@@ -120,15 +122,20 @@
   }
 
   function buildSelects() {
-    const svc = $('[data-service-select]'); if (!svc) return;
-    const keep = svc.value || new URLSearchParams(location.search).get('service') || '';
-    svc.innerHTML = `<option value="">${T('fAny')}</option>` + ORDER.map(s => `<option value="${s}">${tName(s)}</option>`).join('');
-    svc.value = ORDER.includes(keep) ? keep : '';
-    const cl = $('[data-clinic-select]'), keepC = cl.value;
-    cl.innerHTML = `<option value="">${T('fClinicAny')}</option>` + D.countries.map(c =>
-      `<optgroup label="${c[lang]}">${c.branches.map(b => `<option value="${esc(b[0])}">${esc(b[0])}</option>`).join('')}</optgroup>`).join('');
-    cl.value = keepC;
-    const day = $('[data-day-select]'), { day: today } = dohaNow();
+    const param = new URLSearchParams(location.search).get('service') || '';
+    $$('[data-service-select]').forEach(svc => {
+      const keep = svc.value || param;
+      svc.innerHTML = `<option value="">${T('fAny')}</option>` + ORDER.map(s => `<option value="${s}">${tName(s)}</option>`).join('');
+      svc.value = ORDER.includes(keep) ? keep : '';
+    });
+    $$('[data-clinic-select]').forEach(cl => {
+      const keepC = cl.value;
+      cl.innerHTML = `<option value="">${T('fClinicAny')}</option>` + D.countries.map(c =>
+        `<optgroup label="${c[lang]}">${c.branches.map(b => `<option value="${esc(b[0])}">${esc(b[0])}</option>`).join('')}</optgroup>`).join('');
+      cl.value = keepC;
+    });
+    const day = $('[data-day-select]'); if (!day) return;
+    const { day: today } = dohaNow();
     let opts = `<option value="soonest">${T('fSoonest')}</option>`;
     for (let i = 0; i < 7; i++) {
       const d = (today + i) % 7, label = i === 0 ? T('today') : i === 1 ? T('tomorrow') : D.days[lang][d];
@@ -198,6 +205,25 @@
     });
   }
 
+  function initQuick() {
+    const q = $('[data-quick]'); if (!q) return;
+    q.addEventListener('submit', e => {
+      e.preventDefault();
+      const text = fill(T('qbMsg'), { s: q.service.value ? tName(q.service.value) : T('fAny'), c: q.clinic.value || T('fClinicAny') });
+      window.open(`https://wa.me/${D.whatsapp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+  }
+
+  /* map beside the branch list: follows the branch you pick */
+  function setMap(name, countryEn) {
+    const f = $('[data-net-map]'); if (!f) return;
+    const q = encodeURIComponent(`Kings Dental Center ${name} ${countryEn}`);
+    const src = `https://maps.google.com/maps?q=${q}&z=14&output=embed`;
+    if (f.dataset.q !== q) { f.dataset.q = q; f.src = src; }
+    $('[data-net-mapname]').textContent = `Kings Dental Center, ${name}`;
+    $$('.branch').forEach(b => b.classList.toggle('is-on', b.dataset.name === name));
+  }
+
   /* ---------------- lazy videos ---------------- */
   function initVideos() {
     if (reduced) return; // keep the still fallbacks
@@ -264,18 +290,64 @@
   const rise = (targets, trigger, extra = {}) => gsap.from(targets, { y: 40, opacity: 0, duration: 1, stagger: .08, ease: 'expo.out',
     scrollTrigger: { trigger, start: 'top 85%', once: true }, ...extra });
 
-  function homeMotion() {
-    // hero
-    splitLines('.hero__title');
+  /* ---------- hero: draw the tooth frame that matches the scroll position ---------- */
+  function heroSequence() {
+    const hx = $('.hx'); if (!hx) return;
+    const canvas = $('.hx__canvas', hx), ctx = canvas.getContext('2d');
+    const N = +hx.dataset.frames, base = hx.dataset.seq, ext = hx.dataset.ext;
+    const [cy, ch] = (hx.dataset.crop || '0,1').split(',').map(Number);
+    const imgs = new Array(N), state = { f: 0, zoom: 1 };
+    let W = 0, H = 0, dpr = 1;
+    const url = i => `${base}${String(i + 1).padStart(3, '0')}.${ext}`;
+    const near = i => { for (let d = 0; d < N; d++) { const a = imgs[i - d], b = imgs[i + d]; if (a && a.complete && a.naturalWidth) return a; if (b && b.complete && b.naturalWidth) return b; } return null; };
+    const draw = () => {
+      const img = near(Math.round(state.f)); if (!img) return;
+      const sw = img.naturalWidth, sh = img.naturalHeight * ch, sy = img.naturalHeight * cy;
+      const s = Math.min(H / sh, (W * 1.35) / sw) * state.zoom;
+      const dw = sw * s, dh = sh * s;
+      ctx.fillStyle = '#030303'; ctx.fillRect(0, 0, W, H);
+      ctx.drawImage(img, 0, sy, sw, sh, (W - dw) / 2, (H - dh) / 2 + H * 0.02, dw, dh);
+    };
+    const size = () => {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      W = canvas.clientWidth * dpr; H = canvas.clientHeight * dpr;
+      canvas.width = W; canvas.height = H; draw();
+    };
+    // first frame now, the rest in order of need
+    const load = i => { if (imgs[i]) return; const im = new Image(); im.decoding = 'async'; im.onload = draw; im.src = url(i); imgs[i] = im; };
+    load(0);
+    const rest = () => { for (let i = 1; i < N; i++) load(i); };
+    'requestIdleCallback' in window ? requestIdleCallback(rest, { timeout: 800 }) : setTimeout(rest, 300);
+    addEventListener('resize', size); size();
+
+    // intro
+    const words = $$('.hx__wi');
     gsap.timeline()
-      .from('.hero__kicker', { y: 16, opacity: 0, duration: .8, ease: 'power3.out' }, .1)
-      .from('.hero__lede, .hero__actions', { y: 24, opacity: 0, duration: .9, stagger: .08, ease: 'power3.out' }, .35)
-      .from('.arch', { clipPath: 'inset(100% 0 0 0 round 999px 999px 22px 22px)', duration: 1.4, ease: 'expo.inOut' }, 0)
-      .from('.arch__crown', { scale: 1.25, opacity: 0, duration: 1.6, ease: 'expo.out' }, .5)
-      .to('.arch__sheen', { xPercent: 240, duration: 1.6, ease: 'power2.inOut' }, 1.2)
-      .from('.bar__in > *', { y: -12, opacity: 0, duration: .6, stagger: .05, ease: 'power2.out' }, .2);
-    gsap.to('.arch', { yPercent: -10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.to('.hero__copy', { yPercent: 14, opacity: .2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      .from(canvas, { opacity: 0, scale: 1.08, duration: 1.8, ease: 'expo.out' }, 0)
+      .from(words, { yPercent: 110, duration: 1.4, stagger: .12, ease: 'expo.out' }, .15)
+      .from('.hx__top > *, .hx__lede, .qb', { y: 24, opacity: 0, duration: 1, stagger: .07, ease: 'power3.out' }, .55)
+      .from('.bar__in > *', { y: -12, opacity: 0, duration: .6, stagger: .05, ease: 'power2.out' }, .3);
+
+    // scroll: the tooth turns, the words part, the interface steps back
+    const sign = rtl() ? -1 : 1;
+    gsap.timeline({ scrollTrigger: { trigger: hx, start: 'top top', end: 'bottom bottom', scrub: .4 } })
+      .to(state, { f: N - 1, ease: 'none', duration: 1, onUpdate: draw }, 0)
+      .to(state, { zoom: 1.18, ease: 'none', duration: 1 }, 0)
+      .to('.hx__w--a .hx__wi', { xPercent: -28 * sign, ease: 'none', duration: 1 }, 0)
+      .to('.hx__w--b .hx__wi', { xPercent: 28 * sign, ease: 'none', duration: 1 }, 0)
+      .to('.hx__foot, .hx__top, .hx__cue', { opacity: 0, y: -30, ease: 'power1.in', duration: .3 }, 0)
+      .to('.hx__title', { opacity: 0, ease: 'power1.in', duration: .25 }, .75);
+  }
+
+  /* header turns light over dark sections */
+  function darkHeader() {
+    const bar = $('.bar'), on = new Set();
+    $$('[data-dark]').forEach(sec => ScrollTrigger.create({ trigger: sec, start: 'top 36px', end: 'bottom 36px',
+      onToggle: s => { s.isActive ? on.add(sec) : on.delete(sec); bar.classList.toggle('is-dark', on.size > 0); } }));
+  }
+
+  function homeMotion() {
+    heroSequence();
 
     // signature: dive through the crown
     const mask = $('.through__mask'), state = { s: 0 };
@@ -316,11 +388,36 @@
     splitLines('.kids__title', { scrollTrigger: { trigger: '.kids', start: 'top 70%', once: true } });
     rise('.kids__text, .kids__copy .btn', '.kids__copy');
 
-    // network: count up, then rows
-    const num = $('.net__num'), n = { v: 0 };
-    gsap.to(n, { v: +num.dataset.count, duration: 1.8, ease: 'power3.out', snap: { v: 1 },
-      onUpdate: () => (num.textContent = n.v), scrollTrigger: { trigger: '.net', start: 'top 75%', once: true } });
-    rise('.net__lede, .net__tabs', '.net');
+    // network: numbers count up
+    $$('.stat__n').forEach((el, i) => {
+      const n = { v: 0 };
+      gsap.to(n, { v: +el.dataset.count, duration: 1.6 + i * .15, ease: 'power3.out', snap: { v: 1 },
+        onUpdate: () => (el.textContent = n.v), scrollTrigger: { trigger: '.stats', start: 'top 80%', once: true } });
+    });
+    rise('.stat', '.stats', { stagger: .1 });
+    rise('.net__title, .net__lede, .net__tabs', '.net__title');
+    // map loads only when the section comes near
+    ScrollTrigger.create({ trigger: '.net', start: 'top 150%', once: true, onEnter: () => { mapReady = true; if (pendingMap) setMap(...pendingMap); } });
+
+    // marquee: drifts on its own, speeds up and reverses with your scrolling
+    const mq = $('[data-marq]');
+    if (mq) {
+      const setW = () => mq.firstElementChild.offsetWidth;
+      let x = 0, vel = 0, dir = rtl() ? 1 : -1;
+      ScrollTrigger.create({ trigger: '.marq', start: 'top bottom', end: 'bottom top', onUpdate: s => { vel = s.getVelocity() / 300; dir = (s.direction > 0 ? -1 : 1) * (rtl() ? -1 : 1); } });
+      gsap.ticker.add((t, dt) => {
+        const w = setW(); if (!w) return;
+        x += (dir * (0.6 + Math.min(Math.abs(vel), 8))) * dt / 16;
+        vel *= 0.92;
+        if (x <= -w) x += w; if (x > 0) x -= w;
+        mq.style.transform = `translate3d(${x}px,0,0)`;
+      });
+    }
+
+    // tourism image drifts
+    gsap.fromTo('.tour__media img', { yPercent: -8 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.tour', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.from('.tour__media', { clipPath: 'inset(0 0 0 100% round 22px)', duration: 1.5, ease: 'expo.inOut', scrollTrigger: { trigger: '.tour', start: 'top 75%', once: true } });
+    rise('.tour__copy > *', '.tour__copy');
     rise('.branch', '.net__panel', { stagger: .035, y: 24 });
 
     // remaining sections
@@ -355,12 +452,59 @@
       .to(sp, { fillOpacity: 1, ease: 'none', duration: .35 }, '-=.2');
   }
 
+  /* ---------------- full-screen menu ---------------- */
+  function initMenu() {
+    const btn = $('[data-menu-btn]'), menu = $('[data-menu]'); if (!btn) return;
+    let open = false;
+    const set = v => {
+      open = v; btn.setAttribute('aria-expanded', v);
+      document.documentElement.classList.toggle('menu-open', v);
+      if (v) { menu.hidden = false; lenis?.stop(); }
+      else lenis?.start();
+      if (hasGsap && !reduced) {
+        gsap.to(menu, { clipPath: v ? 'inset(0 0 0% 0)' : 'inset(0 0 100% 0)', duration: v ? .9 : .6, ease: 'expo.inOut', onComplete: () => { if (!v) menu.hidden = true; } });
+        if (v) gsap.from($$('.menu__main a, .menu__side > *', menu), { yPercent: 60, opacity: 0, duration: .9, stagger: .05, ease: 'expo.out', delay: .25 });
+      } else { menu.style.clipPath = v ? 'none' : ''; if (!v) menu.hidden = true; }
+    };
+    btn.addEventListener('click', () => set(!open));
+    $$('a', menu).forEach(a => a.addEventListener('click', () => set(false)));
+    addEventListener('keydown', e => { if (e.key === 'Escape' && open) { set(false); btn.focus(); } });
+  }
+
+  /* ---------------- page transitions between pages ---------------- */
+  function initCurtain() {
+    const cur = $('.curtain'); if (!cur || !hasGsap || reduced) return;
+    const crown = $('.curtain__crown', cur);
+    gsap.set(cur, { y: 0, yPercent: 100 }); // take over the CSS starting position so offsets don't stack
+    if (store.sget('kdc-curtain')) { // arriving: lift the curtain off the new page
+      store.sset('kdc-curtain', '');
+      gsap.set(cur, { yPercent: 0 }); gsap.set(crown, { opacity: 1 });
+      gsap.timeline().to(crown, { opacity: 0, scale: .9, duration: .3, delay: .1 }).to(cur, { yPercent: -100, duration: .8, ease: 'expo.inOut' }, '<');
+    }
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a'); if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.target) return;
+      const href = a.getAttribute('href') || '';
+      if (!/\.html(\?|#|$)/.test(href) || /^(https?:|mailto:|tel:)/.test(href)) return;
+      const url = new URL(href, location.href);
+      if (url.pathname === location.pathname) return;
+      e.preventDefault();
+      store.sset('kdc-curtain', '1');
+      gsap.timeline({ onComplete: () => (location.href = url.href) })
+        .fromTo(cur, { yPercent: 100 }, { yPercent: 0, duration: .7, ease: 'expo.inOut' })
+        .fromTo(crown, { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1, duration: .35 }, '-=.25');
+    });
+    addEventListener('pageshow', e => { if (e.persisted) gsap.set(cur, { yPercent: 100 }); }); // back button
+    setTimeout(() => { if (!store.sget('kdc-curtain') && gsap.getProperty(cur, 'yPercent') === 0) gsap.set(cur, { yPercent: -100 }); }, 2500);
+  }
+
   /* ---------------- boot ---------------- */
   // safety net first: whatever fails below, the page never stays behind the loader
   setTimeout(() => { const l = $('.loader'); if (l) { l.remove(); lenis?.start(); document.documentElement.classList.remove('lenis-stopped'); } }, 4500);
   const safe = (fn, ...a) => { try { return fn(...a); } catch (err) { console.error('[kdc]', err); } };
   safe(applyLang);
   safe(initForm);
+  safe(initQuick);
+  safe(initMenu);
   safe(initVideos);
   $$('[data-year]').forEach(e => (e.textContent = new Date().getFullYear()));
   setInterval(renderStatus, 20000);
@@ -371,14 +515,16 @@
     splits.forEach(s => s.revert()); splits = [];
     applyLang();
     if (hasGsap && !reduced) {
-      ['.hero__title', '.th__title', '.kids__title'].forEach(s => splitLines(s, { duration: 1, stagger: .08 }));
+      ['.th__title', '.kids__title'].forEach(s => splitLines(s, { duration: 1, stagger: .08 }));
       ScrollTrigger.refresh();
     }
   });
 
   safe(initScroll);
+  safe(initCurtain);
   const go = () => {
     if (hasGsap && !reduced) {
+      safe(darkHeader);
       if (PAGE === 'home') safe(homeMotion);
       if (PAGE === 'treatment') safe(treatmentMotion);
       safe(footerMotion);

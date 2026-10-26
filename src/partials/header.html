@@ -13,9 +13,34 @@
       <a href="{{H}}#faq" data-i18n="navFaq">Questions</a>
     </nav>
     <button class="lang" type="button" data-lang-toggle lang="ar">عربي</button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn><span class="burger__l"></span><span class="burger__l"></span><span class="visually-hidden" data-i18n="menu">Menu</span></button>
     <a class="status status--bar" href="tel:+97431026780" data-status>
       <span class="status__dot"></span>
       <span class="status__text" data-status-text>Call +974 3102 6780</span>
     </a>
   </div>
 </header>
+
+<!-- Full-screen menu -->
+<div class="menu" id="menu" hidden data-menu>
+  <div class="menu__in wrap">
+    <nav class="menu__main" aria-label="Menu">
+      <a href="{{H}}#services" data-i18n="navServices">Services</a>
+      <a href="{{H}}#clinics" data-i18n="navClinics">Clinics</a>
+      <a href="{{H}}#visit" data-i18n="navVisit">Visit</a>
+      <a href="{{H}}#faq" data-i18n="navFaq">Questions</a>
+      <a href="{{H}}#book" data-i18n="ctaBook">Book a visit</a>
+    </nav>
+    <div class="menu__side">
+      <p class="menu__h" data-i18n="footTreat">Treatments</p>
+      <div class="menu__treat">{{MENU_TREAT}}</div>
+      <div class="menu__contact">
+        <a class="btn btn--light" href="tel:+97431026780" dir="ltr">+974 3102 6780</a>
+        <a class="btn btn--line-light" href="http://wa.me/97431026780" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page transition curtain -->
+<div class="curtain" aria-hidden="true"><svg class="curtain__crown" viewBox="100 228 815 492"><path d="{{CROWN_D}}" fill-rule="evenodd"/></svg></div>

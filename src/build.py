@@ -34,6 +34,7 @@ def page(body, *, title, desc, path, r, home, schema, slug=''):
         '{{TITLE}}': e(title), '{{DESC}}': e(desc), '{{PATH}}': path, '{{OG}}': 'assets/img/og.jpg',
         '{{SCHEMA}}': schema, '{{LOADER}}': loader, '{{BRAND_HREF}}': '#top' if home else f'{r}index.html',
         '{{FOOT_TREAT}}': foot_links(r),
+        '{{MENU_TREAT}}': foot_links(r),
     }
     out = head + body.replace('{{HEADER}}', header).replace('{{FOOTER}}', footer)
     for k, v in rep.items(): out = out.replace(k, v)
@@ -67,6 +68,8 @@ open(os.path.join(OUT, 'js', 'treatments.js'), 'w', encoding='utf-8').write(
 
 # home
 body = rd(S('home.html')).replace('{{TREAT_CARDS}}', '\n        '.join(card(s, '') for s in ORDER))
+marq_set = ''.join(f'<span class="marq__item" data-tname="{s}">{e(T[s]["en"]["name"])}</span>' + '<svg class="marq__crown" viewBox="100 228 815 492" aria-hidden="true"><path d="' + CROWN + '" fill-rule="evenodd"/></svg>' for s in ORDER)
+body = body.replace('{{MARQ}}', f'<div class="marq__set">{marq_set}</div><div class="marq__set">{marq_set}</div>')
 open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page(body,
     title='Kings Dental Center | Dental Clinics in Doha, Qatar',
     desc='Kings Dental Center: 14 dental clinics across Qatar for root canal, orthodontics, implants, gum, cosmetic, children\'s and preventive care. Open until midnight.',

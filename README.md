@@ -33,6 +33,11 @@ This writes `site/index.html`, `site/treatments/*.html`, `site/js/treatments.js`
 - `/treatments/root-canal`, `orthodontics`, `restorative`, `implants`, `gums`, `cosmetic`, `children`, `preventive`
 
 ## What's built in
+- Cinematic hero: full-screen dark scene, the tooth turns frame by frame as you scroll, giant split headline, quick booking bar (treatment + clinic straight to WhatsApp)
+- Full-screen menu, maroon crown page transitions between pages
+- Specialties marquee that speeds up with your scrolling
+- Numbers band (20 clinics, 4 countries, 8 specialties, 7 days) and a live map that follows the branch you pick
+- Dental tourism section
 - Crown preloader that draws the Kings crown, then lands in the header
 - Dive through the crown into the clinic film
 - Treatments: horizontal pinned scroll on desktop, swipe on phones, each opening its own page
@@ -47,3 +52,6 @@ This writes `site/index.html`, `site/treatments/*.html`, `site/js/treatments.js`
 
 ## Libraries
 GSAP 3.15 with ScrollTrigger and SplitText (free license), Lenis 1.3. Fonts: Bodoni Moda, Hanken Grotesk, Noto Kufi Arabic (OFL), self-hosted.
+
+## Swapping in new hero footage
+`bash src/make_frames.sh new-video.mp4` then `python3 src/build.py`. Drop `silk-loop.mp4` into `site/assets/video/` and `tourism.jpg` into `site/assets/img/clinic/`; both appear automatically.

@@ -126,6 +126,13 @@ window.KDC = {
   t: {
     en: {
       heroKicker2: 'Kings Dental Center, Qatar',
+      menu: 'Menu', statClinics: 'clinics', statCountries: 'countries', statSpecialties: 'specialties', statDays: 'days a week',
+      netTitle2: 'Find your nearest clinic',
+      tourTitle: 'Visiting Qatar for treatment?',
+      tourText: "Kings Dental Tourism looks after patients travelling to Qatar for dental care. Send us your travel dates and the treatment you need on WhatsApp, and we'll plan your visits around your stay.",
+      tourCta: 'Plan my visit on WhatsApp',
+      heroW1: 'Smile,', heroW2: 'differently.', qbBtn: 'Book on WhatsApp',
+      qbMsg: 'Hello Kings Dental Center, I would like to book an appointment.\nTreatment: {s}\nClinic: {c}',
       treatLede: 'Eight specialties, one team. Choose a treatment to see how it works.',
       readMore: 'How it works',
       stepsTitle: 'What happens at your visit?',
@@ -178,6 +185,13 @@ window.KDC = {
     },
     ar: {
       heroKicker2: 'مركز كينجز لطب الأسنان، قطر',
+      menu: 'القائمة', statClinics: 'عيادة', statCountries: 'دول', statSpecialties: 'تخصصات', statDays: 'أيام في الأسبوع',
+      netTitle2: 'اعثر على أقرب عيادة',
+      tourTitle: 'تزور قطر للعلاج؟',
+      tourText: 'تهتم خدمة كينجز للسياحة العلاجية بالمرضى القادمين إلى قطر لعلاج أسنانهم. أرسل لنا مواعيد سفرك والعلاج الذي تحتاجه عبر واتساب، وسنرتب زياراتك بما يناسب إقامتك.',
+      tourCta: 'خطط لزيارتي عبر واتساب',
+      heroW1: 'ابتسم،', heroW2: 'بشكل مختلف.', qbBtn: 'احجز عبر واتساب',
+      qbMsg: 'مرحبًا مركز كينجز لطب الأسنان، أود حجز موعد.\nالعلاج: {s}\nالعيادة: {c}',
       treatLede: 'ثمانية تخصصات وفريق واحد. اختر العلاج لترى كيف يتم.',
       readMore: 'كيف يتم',
       stepsTitle: 'ماذا يحدث في زيارتك؟',

@@ -2,32 +2,33 @@
 {{HEADER}}
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero__in wrap">
-    <div class="hero__copy">
-      <p class="hero__kicker" data-i18n="heroKicker2">Kings Dental Center, Qatar</p>
-      <h1 class="hero__title" data-i18n="heroTitle">Smile, differently.</h1>
-      <p class="hero__lede" data-i18n="heroLede">Comprehensive dental care, near you. Eight specialties and 14 clinics across Qatar, open until midnight six days a week.</p>
-      <div class="hero__actions">
-        <a class="btn btn--ink" href="#book" data-i18n="ctaBook">Book a visit</a>
-        <a class="btn btn--line" href="tel:+97431026780"><span data-i18n="ctaCall">Call</span> <span class="num" dir="ltr">+974 3102 6780</span></a>
-      </div>
+<!-- HERO: the tooth turns as you scroll (frames in assets/seq/hero) -->
+<section class="hx" id="top" data-dark data-seq="assets/seq/hero/" data-frames="96" data-ext="webp" data-crop="0.12,0.76">
+  <div class="hx__stick">
+    <canvas class="hx__canvas" aria-hidden="true"></canvas>
+    <div class="hx__vignette" aria-hidden="true"></div>
+    <div class="hx__top wrap">
+      <p class="hx__kicker" data-i18n="heroKicker2">Kings Dental Center, Qatar</p>
+      <p class="hx__status"><span class="status__dot"></span> <span data-status-text>Open now</span></p>
     </div>
-    <figure class="hero__media" aria-hidden="true">
-      <div class="arch">
-        <div class="arch__fallback">
-          <svg class="arch__crown" viewBox="100 228 815 492"><path d="{{CROWN_D}}" fill-rule="evenodd"/></svg>
-          <span class="arch__sheen"></span>
-        </div>
-        <video class="arch__video" data-src="assets/video/hero-loop.mp4" muted loop playsinline preload="none"></video>
-      </div>
-    </figure>
+    <h1 class="hx__title">
+      <span class="hx__w hx__w--a"><span class="hx__wi" data-i18n="heroW1">Smile,</span></span>
+      <span class="hx__w hx__w--b"><span class="hx__wi" data-i18n="heroW2">differently.</span></span>
+    </h1>
+    <div class="hx__foot wrap">
+      <p class="hx__lede" data-i18n="heroLede">Comprehensive dental care, near you. Eight specialties and 14 clinics across Qatar, open until midnight six days a week.</p>
+      <form class="qb" data-quick aria-label="Quick booking">
+        <label class="qb__f"><span class="qb__l" data-i18n="fService">Treatment</span><select name="service" data-service-select></select></label>
+        <label class="qb__f"><span class="qb__l" data-i18n="fClinic">Clinic</span><select name="clinic" data-clinic-select></select></label>
+        <button class="qb__btn" type="submit"><span data-i18n="qbBtn">Book on WhatsApp</span></button>
+      </form>
+    </div>
+    <div class="hx__cue" aria-hidden="true"><span class="hx__cue-line"></span></div>
   </div>
 </section>
 
 <!-- SIGNATURE: through the crown -->
-<section class="through" aria-labelledby="through-title">
+<section class="through" data-dark aria-labelledby="through-title">
   <div class="through__pin">
     <div class="through__mask">
       <div class="through__fill">
@@ -56,6 +57,11 @@
     <div class="wrap treat__bar" aria-hidden="true"><span class="treat__progress"></span></div>
   </div>
 </section>
+
+<!-- Specialties marquee (speed follows scrolling) -->
+<div class="marq" aria-hidden="true">
+  <div class="marq__track" data-marq>{{MARQ}}</div>
+</div>
 
 <!-- HOW A VISIT WORKS (a real sequence, so numbered) -->
 <section class="steps" aria-labelledby="steps-title">
@@ -90,12 +96,36 @@
 </section>
 
 <!-- NETWORK / BRANCH FINDER -->
-<section class="net" id="clinics" aria-labelledby="net-title">
-  <div class="wrap">
-    <h2 id="net-title" class="net__title"><span class="net__num" data-count="20" dir="ltr">20</span> <span data-i18n="netTitle">clinics in four countries</span></h2>
+<section class="net" id="clinics" data-dark aria-labelledby="net-title">
+  <video class="net__bg" data-src="assets/video/silk-loop.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+  <div class="wrap net__in">
+    <ul class="stats" aria-label="Kings Dental Center in numbers">
+      <li class="stat"><span class="stat__n" data-count="20" dir="ltr">20</span><span class="stat__l" data-i18n="statClinics">clinics</span></li>
+      <li class="stat"><span class="stat__n" data-count="4" dir="ltr">4</span><span class="stat__l" data-i18n="statCountries">countries</span></li>
+      <li class="stat"><span class="stat__n" data-count="8" dir="ltr">8</span><span class="stat__l" data-i18n="statSpecialties">specialties</span></li>
+      <li class="stat"><span class="stat__n" data-count="7" dir="ltr">7</span><span class="stat__l" data-i18n="statDays">days a week</span></li>
+    </ul>
+    <h2 id="net-title" class="net__title" data-i18n="netTitle2">Find your nearest clinic</h2>
     <p class="net__lede" data-i18n="netLede">Find the Kings Dental Center nearest you. Tap a number to call the branch.</p>
     <div class="net__tabs" role="tablist" aria-label="Country" data-net-tabs></div>
-    <div class="net__panel" role="tabpanel" data-net-list></div>
+    <div class="net__body">
+      <div class="net__panel" role="tabpanel" data-net-list></div>
+      <div class="net__map"><iframe data-net-map title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p class="net__mapname" data-net-mapname></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DENTAL TOURISM -->
+<section class="tour" aria-labelledby="tour-title">
+  <div class="wrap tour__grid">
+    <div class="tour__copy">
+      <h2 id="tour-title" class="sec-title" data-i18n="tourTitle">Visiting Qatar for treatment?</h2>
+      <p class="tour__text" data-i18n="tourText">Kings Dental Tourism looks after patients travelling to Qatar for dental care. Send us your travel dates and the treatment you need on WhatsApp, and we'll plan your visits around your stay.</p>
+      <a class="btn btn--ink" href="https://wa.me/97431026780?text=Hello%20Kings%20Dental%20Tourism" target="_blank" rel="noopener" data-i18n="tourCta">Plan my visit on WhatsApp</a>
+    </div>
+    <figure class="tour__media">
+      <img src="assets/img/clinic/tourism.jpg" alt="" width="1600" height="1000" loading="lazy" onerror="this.onerror=null;this.src='assets/img/clinic/porcelain-still-2.jpg'">
+    </figure>
   </div>
 </section>
 
