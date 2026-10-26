@@ -13,32 +13,35 @@
   /* ---------------- copy ---------------- */
   const S = {
     en: {
-      title: 'Kings Receptionist', demo: 'Demo', online: 'Replies instantly',
-      launcher: 'Chat with us', open: 'Open chat', close: 'Close chat', placeholder: 'Type a message…', send: 'Send', restart: 'Start over',
+      title: 'Noor', role: 'Virtual receptionist', demo: 'Demo', online: 'Online now', typing: 'Noor is typing…',
+      launcher: 'Chat with Noor', open: 'Open chat', close: 'Close chat', placeholder: 'Type a message…', send: 'Send', restart: 'Start over',
       note: 'Demo preview. Nothing you type is sent or saved.',
-      hello: 'Hello, welcome to Kings Dental Center. I\'m the virtual receptionist. How can I help you today?',
+      hello: '{greet}, and ahlan wa sahlan! I\'m Noor, Kings Dental\'s virtual receptionist. {icon} How can I make your day easier?',
+      gMorning: 'Good morning', gAfternoon: 'Good afternoon', gEvening: 'Good evening',
+      helloAgain: 'Ahlan again{nameC}! What can I help you with?',
       menu: ['Book an appointment', 'Opening hours', 'Find a clinic', 'Insurance', 'Talk to the team'],
-      askTreat: 'Of course. What would you like to book?',
+      askTreat: 'With pleasure. What would you like to come in for?',
       checkup: 'Check-up / not sure',
-      treatAck: 'Good choice. {lead}',
-      checkAck: 'No problem, we\'ll start with a full check-up and take it from there.',
+      treatAck: ['Lovely choice. {lead}', 'Perfect. {lead}', 'Wonderful. {lead}'],
+      checkAck: 'No problem at all. We\'ll start with a full check-up and take it from there together.',
       askClinic: 'Which clinic suits you best?',
       showAll: 'Show all clinics', otherCountries: 'Clinics outside Qatar',
-      askDay: 'Lovely, {clinic} it is. Which day works for you?',
+      askDay: ['{clinic}, lovely. Which day works for you?', 'Great, {clinic} it is. Which day suits you?'],
       askTime: 'Here are the open times on {day}:',
       noTimes: 'That day is fully booked. Could you pick another day?',
       otherDay: 'Another day',
-      askName: 'Great, {time} on {day}. May I have your name?',
-      askPhone: 'Thanks, {name}. What\'s the best mobile number to reach you?',
+      askName: '{time} on {day}, noted. ✍️ And may I have your name?',
+      askPhone: 'Lovely to meet you, {name}! What\'s the best mobile number to reach you?',
       badPhone: 'That number looks too short. Could you type it again, with the country code if you\'re not in Qatar?',
-      review: 'Please check your booking:',
+      review: 'Here\'s everything, {name}. Does it look right?',
+      rNote: 'Note for the team', nervousNote: 'Feeling nervous, please go gently',
       rTreat: 'Treatment', rClinic: 'Clinic', rWhen: 'When', rName: 'Name', rPhone: 'Mobile',
       confirm: 'Confirm booking', change: 'Change something',
       changeWhat: 'What would you like to change?', cTreat: 'Treatment', cClinic: 'Clinic', cTime: 'Day and time',
-      done: 'You\'re booked in! 🎉',
+      done: 'All set, {name}! I can\'t wait for you to meet the team. 👑',
       doneCard: 'Booking {ref}',
       doneNote: 'This is a demo, so no appointment was actually made. In the live version, the clinic receives this instantly and you get a WhatsApp confirmation with directions.',
-      anything: 'Is there anything else I can help with?',
+      anything: ['Is there anything else I can help with?', 'Anything else I can do for you{nameC}?', 'What else can I help with?'],
       hours: 'We\'re open Saturday to Thursday from 7 AM to midnight, and Friday from 2 PM to 10 PM (Doha time).',
       openNow: 'We\'re open right now.', closedNow: 'We\'re closed right now, but you can still book a time.',
       askCountry: 'Which country are you in?',
@@ -50,40 +53,49 @@
       soonest: 'Soonest available time',
       kids: 'Yes, we treat children and teens. Our pediatric dentists take a gentle, affectionate approach so kids feel relaxed.',
       tourism: 'Kings Dental Tourism looks after patients travelling to Qatar. Tell the team your travel dates and the treatment you need, and they\'ll plan your visits around your stay.',
-      thanks: 'You\'re very welcome! Anything else?',
-      bye: 'Thank you for chatting with Kings Dental Center. Have a lovely day!',
-      fallback: 'I\'m only a demo, so I may not understand everything yet. Here\'s what I can help with:',
+      thanks: 'It\'s my pleasure{nameC}! Anything else?',
+      bye: 'It was lovely chatting{nameC}. Take care of that smile! ✨',
+      fallback: 'Sorry, I didn\'t quite catch that. I\'m still learning (this is a demo). Here\'s what I can help with:',
+      nervous: 'You\'re not alone, many of our patients feel the same. Our team goes gently and explains every step before doing anything. If you book with me, I\'ll add a note so they know to take extra care.',
+      nervousBook: 'Book with a care note', nervousAsk: 'What happens at a visit?',
+      visitSteps: 'First, a specialist examines your teeth and gums carefully. Then we explain the treatment that suits you in plain words, and nothing starts until you\'re comfortable with the plan.',
+      whoami: 'I\'m Noor, a virtual receptionist, not a person. This is a demo version. For anything I can\'t help with, our team is just a call away.',
+      howareyou: 'I\'m glowing, thank you for asking! ✨ How can I help you today?',
+      joke: 'Why did the king visit the dentist? To get his teeth crowned! 👑 Now, can I help you book a visit?',
       treatInfo: '{name}: {lead} Would you like to book it?', yesBook: 'Yes, book it', learnMore: 'Read more',
       today: 'Today', tomorrow: 'Tomorrow', at: '{day}, {time}',
       morning: 'Morning', afternoon: 'Afternoon', evening: 'Evening', sample: 'Sample times for the demo'
     },
     ar: {
-      title: 'استقبال كينجز', demo: 'تجريبي', online: 'يرد فورًا',
-      launcher: 'تحدث معنا', open: 'فتح المحادثة', close: 'إغلاق المحادثة', placeholder: 'اكتب رسالة…', send: 'إرسال', restart: 'ابدأ من جديد',
+      title: 'نور', role: 'موظفة استقبال افتراضية', demo: 'تجريبي', online: 'متصلة الآن', typing: 'نور تكتب…',
+      launcher: 'تحدث مع نور', open: 'فتح المحادثة', close: 'إغلاق المحادثة', placeholder: 'اكتب رسالة…', send: 'إرسال', restart: 'ابدأ من جديد',
       note: 'نسخة تجريبية. لا يتم إرسال أو حفظ أي شيء تكتبه.',
-      hello: 'مرحبًا بك في مركز كينجز لطب الأسنان. أنا موظف الاستقبال الافتراضي. كيف يمكنني مساعدتك اليوم؟',
+      hello: '{greet}، أهلًا وسهلًا! أنا نور، موظفة الاستقبال الافتراضية في كينجز لطب الأسنان. {icon} كيف يمكنني أن أسهّل يومك؟',
+      gMorning: 'صباح الخير', gAfternoon: 'مساء الخير', gEvening: 'مساء الخير',
+      helloAgain: 'أهلًا بك مجددًا{nameC}! بماذا أساعدك؟',
       menu: ['حجز موعد', 'مواعيد العمل', 'ابحث عن عيادة', 'التأمين', 'تحدث مع الفريق'],
-      askTreat: 'بكل سرور. ما الذي تود حجزه؟',
+      askTreat: 'بكل سرور. ما سبب زيارتك؟',
       checkup: 'فحص عام / لست متأكدًا',
-      treatAck: 'اختيار جيد. {lead}',
+      treatAck: ['اختيار جميل. {lead}', 'ممتاز. {lead}', 'رائع. {lead}'],
       checkAck: 'لا مشكلة، سنبدأ بفحص شامل ثم نحدد الخطوات التالية.',
       askClinic: 'أي عيادة تناسبك؟',
       showAll: 'كل العيادات', otherCountries: 'عيادات خارج قطر',
-      askDay: 'ممتاز، عيادة {clinic}. أي يوم يناسبك؟',
+      askDay: ['عيادة {clinic}، جميل. أي يوم يناسبك؟', 'رائع، عيادة {clinic}. أي يوم يناسبك؟'],
       askTime: 'هذه الأوقات المتاحة يوم {day}:',
       noTimes: 'هذا اليوم محجوز بالكامل. هل يمكنك اختيار يوم آخر؟',
       otherDay: 'يوم آخر',
-      askName: 'رائع، الساعة {time} يوم {day}. ما اسمك؟',
-      askPhone: 'شكرًا {name}. ما رقم الجوال الذي نتواصل معك عليه؟',
+      askName: 'الساعة {time} يوم {day}، تم. ✍️ وما اسمك الكريم؟',
+      askPhone: 'تشرفت بمعرفتك يا {name}! ما رقم الجوال الذي نتواصل معك عليه؟',
       badPhone: 'يبدو الرقم قصيرًا. هل يمكنك كتابته مرة أخرى مع رمز الدولة إن لم تكن في قطر؟',
-      review: 'يرجى مراجعة حجزك:',
+      review: 'هذه كل التفاصيل يا {name}. هل كل شيء صحيح؟',
+      rNote: 'ملاحظة للفريق', nervousNote: 'يشعر بالقلق، يرجى التعامل بلطف',
       rTreat: 'العلاج', rClinic: 'العيادة', rWhen: 'الموعد', rName: 'الاسم', rPhone: 'الجوال',
       confirm: 'تأكيد الحجز', change: 'تعديل',
       changeWhat: 'ما الذي تود تعديله؟', cTreat: 'العلاج', cClinic: 'العيادة', cTime: 'اليوم والوقت',
-      done: 'تم حجز موعدك! 🎉',
+      done: 'تم كل شيء يا {name}! سعيدة بأنك ستلتقي بفريقنا. 👑',
       doneCard: 'الحجز {ref}',
       doneNote: 'هذه نسخة تجريبية، لذلك لم يتم حجز موعد فعلي. في النسخة الفعلية تصل الحجوزات إلى العيادة فورًا وتتلقى تأكيدًا عبر واتساب مع الاتجاهات.',
-      anything: 'هل هناك شيء آخر يمكنني مساعدتك به؟',
+      anything: ['هل هناك شيء آخر يمكنني مساعدتك به؟', 'هل أستطيع مساعدتك في شيء آخر{nameC}؟', 'بماذا أساعدك أيضًا؟'],
       hours: 'نعمل من السبت إلى الخميس من 7 صباحًا حتى منتصف الليل، ويوم الجمعة من 2 ظهرًا حتى 10 مساءً (بتوقيت الدوحة).',
       openNow: 'نحن مفتوحون الآن.', closedNow: 'نحن مغلقون الآن، لكن يمكنك حجز موعد.',
       askCountry: 'في أي دولة أنت؟',
@@ -95,15 +107,28 @@
       soonest: 'أقرب موعد متاح',
       kids: 'نعم، نعالج الأطفال والمراهقين. يتعامل أطباء أسنان الأطفال لدينا بأسلوب لطيف وحنون ليشعر الأطفال بالراحة.',
       tourism: 'تهتم خدمة كينجز للسياحة العلاجية بالمرضى القادمين إلى قطر. أخبر الفريق بمواعيد سفرك والعلاج الذي تحتاجه وسيرتبون زياراتك.',
-      thanks: 'على الرحب والسعة! هل هناك شيء آخر؟',
-      bye: 'شكرًا لتواصلك مع مركز كينجز لطب الأسنان. نتمنى لك يومًا سعيدًا!',
-      fallback: 'أنا نسخة تجريبية وقد لا أفهم كل شيء بعد. هذا ما يمكنني مساعدتك به:',
+      thanks: 'هذا من دواعي سروري{nameC}! هل هناك شيء آخر؟',
+      bye: 'سعدت بالحديث معك{nameC}. حافظ على ابتسامتك! ✨',
+      fallback: 'عذرًا، لم أفهم ذلك تمامًا. ما زلت أتعلم (هذه نسخة تجريبية). هذا ما يمكنني مساعدتك به:',
+      nervous: 'لست وحدك، كثير من مرضانا يشعرون بالشيء نفسه. يتعامل فريقنا بلطف ويشرح كل خطوة قبل البدء. إذا حجزت معي سأضيف ملاحظة ليعتني بك الفريق بشكل خاص.',
+      nervousBook: 'احجز مع ملاحظة عناية', nervousAsk: 'ماذا يحدث في الزيارة؟',
+      visitSteps: 'أولًا يفحص أخصائي أسنانك ولثتك بعناية، ثم نشرح لك العلاج المناسب بكلمات واضحة، ولا نبدأ أي شيء قبل أن تكون مرتاحًا للخطة.',
+      whoami: 'أنا نور، موظفة استقبال افتراضية ولست شخصًا حقيقيًا. هذه نسخة تجريبية. لأي شيء لا أستطيع المساعدة فيه، فريقنا على بعد مكالمة.',
+      howareyou: 'أنا بخير ومشرقة، شكرًا لسؤالك! ✨ كيف أساعدك اليوم؟',
+      joke: 'لماذا زار الملك طبيب الأسنان؟ ليضع تاجًا على أسنانه! 👑 والآن، هل أحجز لك زيارة؟',
       treatInfo: '{name}: {lead} هل تود حجزه؟', yesBook: 'نعم، احجز', learnMore: 'اقرأ المزيد',
       today: 'اليوم', tomorrow: 'غدًا', at: '{day}، {time}',
       morning: 'صباحًا', afternoon: 'ظهرًا', evening: 'مساءً', sample: 'أوقات تجريبية للعرض'
     }
   };
-  const t = k => S[lang()][k] ?? S.en[k];
+  const pickOne = v => (Array.isArray(v) ? v[Math.floor(Math.random() * v.length)] : v);
+  const t = k => pickOne(S[lang()][k] ?? S.en[k]);
+  const nameC = () => (st.name ? (lang() === 'ar' ? ` يا ${st.name.split(' ')[0]}` : `, ${st.name.split(' ')[0]}`) : '');
+  const greetFill = () => {
+    const h = +new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Qatar', hour: 'numeric', hourCycle: 'h23' }).format(new Date()) % 24;
+    const [g, icon] = h >= 5 && h < 12 ? ['gMorning', '☀️'] : h >= 12 && h < 17 ? ['gAfternoon', '🌤️'] : ['gEvening', '🌙'];
+    return { greet: t(g), icon };
+  };
   const tName = s => (TR[s] ? TR[s][lang()].name : s);
   const tLead = s => (TR[s] ? TR[s][lang()].lead : '');
 
@@ -148,15 +173,15 @@
   wrap.className = 'rx';
   wrap.innerHTML = `
     <button class="rx__launch" type="button" aria-expanded="false" aria-controls="rx-panel">
-      <span class="rx__launch-icon">${crownSvg('rx__launch-crown')}</span>
+      <span class="rx__launch-icon rx__glow">${crownSvg('rx__launch-crown')}</span>
       <span class="rx__launch-text" data-rx="launcher"></span>
     </button>
     <section class="rx__panel" id="rx-panel" role="dialog" aria-modal="false" aria-labelledby="rx-title" hidden>
       <header class="rx__head">
-        <span class="rx__avatar">${crownSvg('rx__avatar-crown')}</span>
+        <span class="rx__avatar rx__glow">${crownSvg('rx__avatar-crown')}</span>
         <div class="rx__who">
           <p class="rx__title" id="rx-title"><span data-rx="title"></span> <span class="rx__demo" data-rx="demo"></span></p>
-          <p class="rx__status"><span class="rx__dot"></span><span data-rx="online"></span></p>
+          <p class="rx__status"><span class="rx__dot"></span><span class="rx__status-text" data-rx="role"></span></p>
         </div>
         <button class="rx__icon rx__restart" type="button" data-rx-restart><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden" data-rx="restart"></span></button>
         <button class="rx__icon rx__close" type="button" data-rx-close><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="visually-hidden" data-rx="close"></span></button>
@@ -209,8 +234,9 @@
   function say(html, opts = {}) {
     busy = busy.then(() => new Promise(res => {
       const typing = add('<span class="rx__typing"><i></i><i></i><i></i></span>', 'bot', 'rx__msg--typing');
+      const stTxt = $('.rx__status-text'); stTxt.textContent = t('typing'); wrap.classList.add('is-typing');
       const wait = reduced ? 50 : Math.min(1400, 380 + html.replace(/<[^>]+>/g, '').length * 9);
-      setTimeout(() => { typing.remove(); add(html, 'bot', opts.cls || ''); res(); }, wait);
+      setTimeout(() => { typing.remove(); add(html, 'bot', opts.cls || ''); stTxt.textContent = t('role'); wrap.classList.remove('is-typing'); res(); }, wait);
     }));
     return busy;
   }
@@ -219,8 +245,8 @@
   /* ---------------- flows ---------------- */
   function menu(intro) {
     st.step = 'menu';
-    if (intro) say(esc(intro));
-    then(() => chips(t('menu').map((label, i) => [label, [bookStart, hoursInfo, findClinic, insurance, team][i]])));
+    if (intro) say(esc(fill(intro, { nameC: nameC(), ...greetFill() })));
+    then(() => chips((S[lang()].menu).map((label, i) => [label, [bookStart, hoursInfo, findClinic, insurance, team][i]])));
   }
 
   function bookStart() {
@@ -311,14 +337,14 @@
   }
   function review() {
     st.step = 'review'; st.changing = false;
-    say(esc(t('review')));
+    say(esc(fill(t('review'), { name: st.name.split(' ')[0] })));
     const row = (k, v) => `<div class="rx__row"><span>${esc(t(k))}</span><strong>${esc(v)}</strong></div>`;
     say(`<div class="rx__card">${crownSvg('rx__card-crown')}
       ${row('rTreat', st.treat === 'checkup' ? t('checkup') : tName(st.treat))}
       ${row('rClinic', st.clinic)}
       ${row('rWhen', fill(t('at'), { day: st.day, time: st.time }))}
       ${row('rName', st.name)}
-      ${row('rPhone', st.phone)}</div>`, { cls: 'rx__msg--card' });
+      ${row('rPhone', st.phone)}${st.nervous ? row('rNote', t('nervousNote')) : ''}</div>`, { cls: 'rx__msg--card' });
     then(() => chips([[t('confirm'), done, 'primary'], [t('change'), change, 'ghost']]));
   }
   function change() {
@@ -328,13 +354,14 @@
   }
   function done() {
     const ref = 'KDC-' + (hash(st.name + st.phone + st.day + st.time) % 9000 + 1000);
-    say(esc(t('done')));
+    say(esc(fill(t('done'), { name: st.name.split(' ')[0] })));
+    then(() => celebrate());
     say(`<div class="rx__card rx__card--done">${crownSvg('rx__card-crown')}
       <p class="rx__ref">${esc(fill(t('doneCard'), { ref }))}</p>
       <p class="rx__done-main">${esc(st.treat === 'checkup' ? t('checkup') : tName(st.treat))}</p>
       <p class="rx__done-sub">${esc(st.clinic)} · ${esc(fill(t('at'), { day: st.day, time: st.time }))}</p>
       <p class="rx__demo-note">${esc(t('doneNote'))}</p></div>`, { cls: 'rx__msg--card' });
-    const keep = { name: st.name, phone: st.phone };
+    const keep = { name: st.name, phone: st.phone, nervous: false };
     reset(); Object.assign(st, keep);
     menu(t('anything'));
   }
@@ -374,9 +401,17 @@
       const keys = { 'root-canal': ['root canal', 'nerve'], orthodontics: ['brace', 'align', 'orthodont', 'straight', 'تقويم'], restorative: ['filling', 'cavity', 'حشو'], implants: ['implant', 'missing tooth', 'زراع'], gums: ['gum', 'bleed', 'لثة'], cosmetic: ['whiten', 'veneer', 'cosmetic', 'smile makeover', 'تجميل', 'تبييض'], children: ['child', 'kid', 'son', 'daughter', 'baby', 'طفل', 'أطفال'], preventive: ['clean', 'scal', 'check', 'فحص', 'تنظيف'] }[slug] || [];
       return s.includes(en) || raw.includes(ar) || has(s, keys) || has(raw, keys);
     });
+    if (has(s, ['scared', 'nervous', 'anxious', 'afraid', 'fear', 'worried', 'phobia']) || has(raw, ['خوف', 'خائف', 'أخاف', 'قلق', 'متوتر'])) {
+      say(esc(t('nervous')));
+      then(() => chips([[t('nervousBook'), () => { st.nervous = true; bookStart(); }, 'primary'], [t('nervousAsk'), () => { say(esc(t('visitSteps'))); menu(t('anything')); }]]));
+      return;
+    }
+    if (has(s, ['who are you', 'your name', 'are you real', 'are you human', 'a bot', 'are you a robot', 'real person', 'are you ai']) || has(raw, ['من أنت', 'ما اسمك', 'هل أنت حقيقي', 'روبوت', 'إنسان'])) { say(esc(t('whoami'))); menu(t('anything')); return; }
+    if (has(s, ['how are you', "how's it going", 'how r u']) || has(raw, ['كيف حالك', 'شلونك', 'كيفك'])) { say(esc(t('howareyou'))); menu(); return; }
+    if (has(s, ['joke', 'funny', 'make me laugh']) || has(raw, ['نكتة', 'ضحكني'])) { say(esc(t('joke'))); then(() => chips([[(S[lang()].menu)[0], bookStart, 'primary'], [(S[lang()].menu)[1], hoursInfo]])); return; }
     if (has(s, ['pain', 'hurt', 'ache', 'emergency', 'urgent', 'swollen', 'broken']) || has(raw, ['ألم', 'وجع', 'طوارئ', 'عاجل'])) {
       say(esc(t('pain')));
-      then(() => chips([[t('soonest'), () => { st.treat = 'checkup'; st.clinic = st.clinic || 'Asian Town'; st.step = 'day'; pickDay(0, t('today')); }, 'primary'], [t('menu')[4], team]]));
+      then(() => chips([[t('soonest'), () => { st.treat = 'checkup'; st.clinic = st.clinic || 'Asian Town'; st.step = 'day'; pickDay(0, t('today')); }, 'primary'], [(S[lang()].menu)[4], team]]));
       return;
     }
     if (has(s, ['book', 'appointment', 'schedule', 'reserve', 'visit']) || has(raw, ['حجز', 'موعد', 'احجز'])) { if (treatHit) pickTreat(treatHit); else bookStart(); return; }
@@ -392,9 +427,9 @@
       then(() => chips([[t('yesBook'), () => pickTreat(treatHit), 'primary'], [t('learnMore'), () => (location.href = `${ROOT}treatments/${treatHit}.html`)]]));
       return;
     }
-    if (has(s, ['thank', 'thx', 'great', 'perfect', 'ok', 'okay']) || has(raw, ['شكر', 'تمام', 'ممتاز'])) { say(esc(t('thanks'))); menu(); return; }
-    if (has(s, ['bye', 'goodbye', 'see you']) || has(raw, ['مع السلامة', 'وداعا'])) { say(esc(t('bye'))); return; }
-    if (has(s, ['hi', 'hello', 'hey', 'salam', 'good morning', 'good evening']) || has(raw, ['مرحبا', 'السلام', 'أهلا', 'هلا'])) { menu(t('hello')); return; }
+    if (has(s, ['thank', 'thx', 'great', 'perfect', 'ok', 'okay']) || has(raw, ['شكر', 'تمام', 'ممتاز'])) { say(esc(fill(t('thanks'), { nameC: nameC() }))); menu(); return; }
+    if (has(s, ['bye', 'goodbye', 'see you']) || has(raw, ['مع السلامة', 'وداعا'])) { say(esc(fill(t('bye'), { nameC: nameC() }))); return; }
+    if (has(s, ['hi', 'hello', 'hey', 'salam', 'good morning', 'good evening']) || has(raw, ['مرحبا', 'السلام', 'أهلا', 'هلا'])) { menu(t('helloAgain')); return; }
     menu(t('fallback'));
   }
 
@@ -403,6 +438,21 @@
     const v = field.value.trim(); if (!v) return;
     field.value = ''; clearChips(); user(v); understand(v);
   });
+
+  function celebrate() {
+    if (reduced) return;
+    const box = document.createElement('div'); box.className = 'rx__confetti'; box.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement('span');
+      s.innerHTML = i % 3 ? '' : crownSvg('rx__conf-crown');
+      s.style.setProperty('--x', (Math.random() * 100).toFixed(1) + '%');
+      s.style.setProperty('--d', (Math.random() * .5).toFixed(2) + 's');
+      s.style.setProperty('--r', (Math.random() * 360 - 180).toFixed(0) + 'deg');
+      s.className = i % 3 ? (i % 2 ? 'is-dot' : 'is-dot is-light') : 'is-crown';
+      box.appendChild(s);
+    }
+    panel.appendChild(box); setTimeout(() => box.remove(), 2600);
+  }
 
   /* ---------------- open / close ---------------- */
   function start() {

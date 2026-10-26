@@ -126,7 +126,7 @@ window.KDC = {
   t: {
     en: {
       heroKicker2: 'Kings Dental Center, Qatar',
-      chatCta: 'Prefer to chat? Ask our virtual receptionist',
+      chatCta: 'Prefer to chat? Ask Noor, our virtual receptionist',
       reviewAsk: 'Been to one of our clinics? Your review helps other patients choose with confidence.', reviewWrite: 'Write a review',
       menu: 'Menu', statClinics: 'clinics', statCountries: 'countries', statSpecialties: 'specialties', statDays: 'days a week',
       netTitle2: 'Find your nearest clinic',
@@ -178,7 +178,7 @@ window.KDC = {
       footContact: 'Contact', footHours: 'Hours', footHours1: 'Saturday to Thursday, 7 AM to 12 AM', footHours2: 'Friday, 2 PM to 10 PM',
       footMore: 'Kings Dental', footTourism: 'Dental tourism', footCareers: 'Careers', footFollow: 'Follow',
       family: 'Part of the Kings group: Kings Pharmacy, Modern Dental Lab, Queens Dermatology Center, Queens Salon, Kings Trading and more.',
-      dockWa: 'WhatsApp', dockChat: 'Chat',
+      dockWa: 'WhatsApp', dockChat: 'Noor', dockCall: 'Call',
       openUntil: 'Open now until {t}', opensAt: 'Closed. Opens {d} at {t}', opensToday: 'Closed. Opens today at {t}',
       callUs: 'Call us', midnight: 'midnight', tomorrow: 'tomorrow', closed: 'Closed', today: 'Today',
       longOpen: 'We are open right now, until {t}. Walk in or call ahead.',
@@ -187,7 +187,7 @@ window.KDC = {
     },
     ar: {
       heroKicker2: 'مركز كينجز لطب الأسنان، قطر',
-      chatCta: 'تفضّل المحادثة؟ اسأل موظف الاستقبال الافتراضي',
+      chatCta: 'تفضّل المحادثة؟ اسأل نور، موظفة الاستقبال الافتراضية',
       reviewAsk: 'زرت إحدى عياداتنا؟ تقييمك يساعد المرضى الآخرين على الاختيار بثقة.', reviewWrite: 'اكتب تقييمًا',
       menu: 'القائمة', statClinics: 'عيادة', statCountries: 'دول', statSpecialties: 'تخصصات', statDays: 'أيام في الأسبوع',
       netTitle2: 'اعثر على أقرب عيادة',
@@ -239,7 +239,7 @@ window.KDC = {
       footContact: 'تواصل', footHours: 'المواعيد', footHours1: 'السبت إلى الخميس، 7 صباحًا حتى 12 منتصف الليل', footHours2: 'الجمعة، 2 ظهرًا حتى 10 مساءً',
       footMore: 'كينجز لطب الأسنان', footTourism: 'السياحة العلاجية', footCareers: 'الوظائف', footFollow: 'تابعنا',
       family: 'جزء من مجموعة كينجز: صيدلية كينجز، مختبر مودرن للأسنان، مركز كوينز للأمراض الجلدية، صالون كوينز، كينجز للتجارة وغيرها.',
-      dockWa: 'واتساب', dockChat: 'محادثة',
+      dockWa: 'واتساب', dockChat: 'نور', dockCall: 'اتصال',
       openUntil: 'مفتوح الآن حتى {t}', opensAt: 'مغلق. نفتح {d} الساعة {t}', opensToday: 'مغلق. نفتح اليوم الساعة {t}',
       callUs: 'اتصل بنا', midnight: 'منتصف الليل', tomorrow: 'غدًا', closed: 'مغلق', today: 'اليوم',
       longOpen: 'نحن مفتوحون الآن حتى {t}. تفضل بالزيارة أو اتصل مسبقًا.',

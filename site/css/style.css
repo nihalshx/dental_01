@@ -798,3 +798,27 @@ html[dir="rtl"] .finale__title { font-family: var(--arabic); font-weight: 700; l
   .dock__wa { padding: 0 11px; font-size: .86rem; }
   .dock__chat { width: 52px; }
 }
+
+/* phones: three equal actions, no number */
+@media (max-width: 860px) {
+  .dock__call, .dock__chat, .dock__wa { flex: 1 1 0; width: auto; min-width: 0; min-height: 56px; padding: 0 10px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-direction: row; font-size: .95rem; font-weight: 600; }
+  .dock__chat { background: var(--maroon); }
+  .dock__chat-crown { width: 22px; }
+  .dock__chat::after { display: none; }
+  .dock__ico { width: 20px; height: 20px; flex: none; }
+  .dock__call { position: relative; }
+  .dock__dot { position: absolute; top: 12px; inset-inline-end: 16px; width: 7px; height: 7px; }
+}
+
+/* Noor: glowing avatar, typing state, celebration */
+.rx__glow { box-shadow: 0 0 0 0 rgba(138,21,56,.55); animation: rx-glow 3.2s ease-in-out infinite; }
+@keyframes rx-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(176,36,79,.0), 0 0 18px rgba(176,36,79,.35); } 50% { box-shadow: 0 0 0 6px rgba(176,36,79,.12), 0 0 28px rgba(176,36,79,.6); } }
+.rx.is-typing .rx__avatar { animation-duration: 1.1s; }
+.rx__title > span:first-child { font-size: 1.35rem; }
+.rx__confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
+.rx__confetti span { position: absolute; left: var(--x); bottom: -24px; animation: rx-rise 2.2s cubic-bezier(.2,.7,.3,1) var(--d) forwards; opacity: 0; }
+.rx__confetti .is-dot { width: 8px; height: 8px; border-radius: 2px; background: var(--maroon); }
+.rx__confetti .is-dot.is-light { background: #E7C9A0; }
+.rx__conf-crown { width: 22px; fill: var(--maroon); display: block; }
+@keyframes rx-rise { 0% { opacity: 0; transform: translateY(0) rotate(0); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-520px) rotate(var(--r)); } }
+@media (prefers-reduced-motion: reduce) { .rx__glow { animation: none; } }
